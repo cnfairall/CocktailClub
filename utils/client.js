@@ -10,6 +10,7 @@ const firebaseCredentials = {
 const clientCredentials = {
   ...firebaseCredentials,
   databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
+  extDbURL: process.env.NEXT_PUBLIC_EXT_DB_URL,
 };
 
 if (!firebase.apps.length) {
