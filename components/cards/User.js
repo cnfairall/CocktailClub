@@ -6,8 +6,8 @@ import {
   Card, CardBody, CardImg, CardTitle, Modal,
 } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { deleteUser } from '../api/UsersApi';
-import { signOut } from '../utils/auth';
+import { deleteUser } from '../../api/UsersApi';
+import { signOut } from '../../utils/auth';
 
 export default function UserCard({ user }) {
   const router = useRouter();
