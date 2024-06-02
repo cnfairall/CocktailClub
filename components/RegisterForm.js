@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useRouter } from 'next/router';
 import { registerUser } from '../utils/auth'; // Update with path to registerUser
+import { editUser } from '../api/UsersApi';
 
 function RegisterForm({ user, updateUser }) {
   const [formData, setFormData] = useState({
@@ -14,6 +16,23 @@ function RegisterForm({ user, updateUser }) {
     bio: '',
     uid: user.uid,
   });
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        id: user.id,
+        username: user.username || '',
+        firstName: user.firstName || '',
+        lastName: user.lastName || '',
+        imageUrl: user.imageUrl || '',
+        email: user.email || '',
+        bio: user.bio || '',
+        uid: user.uid || '',
+      }));
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +44,13 @@ function RegisterForm({ user, updateUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    registerUser(formData).then(() => updateUser(user.uid));
+    if (user.id) {
+      editUser(formData)
+        .then(() => updateUser(user.uid))
+        .then(() => router.push('/'));
+    } else {
+      registerUser(formData).then(() => updateUser(user.uid));
+    }
   };
 
   return (
@@ -100,6 +125,7 @@ function RegisterForm({ user, updateUser }) {
 
 RegisterForm.propTypes = {
   user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
