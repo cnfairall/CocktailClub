@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import { useAuth } from './context/authContext';
 import Loading from '../components/Loading';
 import Signin from '../components/Signin';
@@ -8,10 +7,6 @@ import RegisterForm from '../components/RegisterForm';
 
 const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) => {
   const { user, userLoading, updateUser } = useAuth();
-
-  useEffect(() => {
-    console.warn(user);
-  });
 
   // if user state is null, then show loader
   if (userLoading) {
