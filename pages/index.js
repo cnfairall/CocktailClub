@@ -1,13 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react';
-import { useAuth } from '../utils/context/authContext';
-import UserCard from '../components/cards/User';
+import { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import Cocktail from '../components/cards/Cocktail';
+import { getRandomCocktail } from '../api/CocktailsApi';
 
-function Home() {
-  const { user } = useAuth();
+export default function Home() {
+  const [randomCocktail, setRandomCocktail] = useState({});
+
+  const setRandom = () => {
+    getRandomCocktail().then(setRandomCocktail);
+  };
+
+  useEffect(() => {
+    getRandomCocktail().then(setRandomCocktail);
+    console.warn(randomCocktail);
+  }, []);
 
   return (
-    <UserCard user={user} />
+    <>
+      <Cocktail cocktail={randomCocktail} />
+
+      <Button onClick={setRandom}>Refresh</Button>
+    </>
   );
 }
-export default Home;
