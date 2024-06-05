@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useRouter } from 'next/router';
-import { registerUser } from '../utils/auth'; // Update with path to registerUser
-import { editUser } from '../api/UsersApi';
+import { registerUser } from '../../utils/auth'; // Update with path to registerUser
+import { editUser } from '../../api/UsersApi';
 
 function RegisterForm({ user, updateUser }) {
   const [formData, setFormData] = useState({

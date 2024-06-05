@@ -1,4 +1,4 @@
-import RegisterForm from '../components/RegisterForm';
+import RegisterForm from '../components/forms/RegisterForm';
 import { useAuth } from '../utils/context/authContext';
 
 export default function EditUser() {
