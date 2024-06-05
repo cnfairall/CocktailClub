@@ -29,3 +29,14 @@ body {
 .amounts {
   margin-right: 15px;
 }
+
+.search {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}

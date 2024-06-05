@@ -24,10 +24,10 @@ export default function Home() {
           <p>{randomCocktail[0]?.strGlass}</p>
           <div className="measures">
             <div className="amounts">
-              {randomCocktail.amounts?.map((item) => <div key={item.idDrink}>{item}</div>)}
+              {randomCocktail.amounts?.map((item) => <div>{item}</div>)}
             </div>
             <div className="ingredients">
-              {randomCocktail.ingredients?.map((item) => <div key={item.idDrink}>{item}</div>)}
+              {randomCocktail.ingredients?.map((item) => <div>{item}</div>)}
             </div>
           </div>
           <p>{randomCocktail[0]?.strInstructions}</p>

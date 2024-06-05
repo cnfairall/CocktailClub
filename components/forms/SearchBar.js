@@ -1,17 +1,17 @@
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export default function SearchBar({ onSearch }) {
-  const [searchInput, setSearchInput] = useState({});
+  // const [searchInput, setSearchInput] = useState({});
 
   const handleChange = (e) => {
-    setSearchInput(e.target.value.toLowerCase());
+    onSearch(e.target.value.toLowerCase());
   };
 
-  const handleSubmit = () => {
-    onSearch(searchInput);
-  };
+  // const handleSubmit = () => {
+  //   onSearch(searchInput);
+  // };
 
   return (
     <Form>
@@ -23,7 +23,7 @@ export default function SearchBar({ onSearch }) {
         name="search"
         onChange={handleChange}
       />
-      <Button onClick={handleSubmit}>Search</Button>
+      {/* <Button onClick={handleSubmit}>Search</Button> */}
     </Form>
 
   );
