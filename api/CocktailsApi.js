@@ -22,8 +22,16 @@ const getCocktailbyDrinkId = (drinkId) => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
-    .catch(reject);
+    .then((data) => {
+      if (data) {
+        const [{ cocktailIngredients }] = data;
+        const ingredients = Object.keys(cocktailIngredients);
+        const amounts = Object.values(cocktailIngredients);
+        resolve({ ...data, ingredients, amounts });
+      } else {
+        resolve([]);
+      }
+    });
 });
 
 const getCocktailsBySpirit = (spirit) => new Promise((resolve, reject) => {

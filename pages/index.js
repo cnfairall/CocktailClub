@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button, Card, CardBody } from 'react-bootstrap';
+import {
+  Button, Card, CardBody, Image,
+} from 'react-bootstrap';
 import { getRandomCocktail } from '../api/CocktailsApi';
 
 export default function Home() {
@@ -13,13 +15,13 @@ export default function Home() {
 
   useEffect(() => {
     setRandom();
-    console.warn(randomCocktail);
   }, []);
 
   return (
     <>
-      <Card>
+      <Card style={{ width: '18em' }}>
         <CardBody>
+          <Image style={{ width: '200px' }} src={randomCocktail[0].strDrinkThumb} />
           <p>{randomCocktail[0]?.strDrink}</p>
           <p>{randomCocktail[0]?.strGlass}</p>
           <div className="measures">
