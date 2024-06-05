@@ -26,12 +26,12 @@ export default function UserCard({ user }) {
   return (
     <>
       <Card>
-        <CardTitle>{user.username}</CardTitle>
+        <CardTitle>{user?.username}</CardTitle>
         <CardBody>
-          <CardImg src={user.imageUrl} />
-          <p>{user.firstName} {user.lastName}</p>
-          <p>{user.email}</p>
-          <p>{user.bio}</p>
+          <CardImg src={user?.imageUrl} />
+          <p>{user?.firstName} {user?.lastName}</p>
+          <p>{user?.email}</p>
+          <p>{user?.bio}</p>
         </CardBody>
         <Link passHref href="/edituser">
           <Button>Edit</Button>

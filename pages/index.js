@@ -1,24 +1,38 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import Cocktail from '../components/cards/Cocktail';
+import { Button, Card, CardBody } from 'react-bootstrap';
 import { getRandomCocktail } from '../api/CocktailsApi';
 
 export default function Home() {
   const [randomCocktail, setRandomCocktail] = useState({});
 
   const setRandom = () => {
-    getRandomCocktail().then(setRandomCocktail);
+    getRandomCocktail().then((resp) => {
+      setRandomCocktail(resp);
+    });
   };
 
   useEffect(() => {
-    getRandomCocktail().then(setRandomCocktail);
+    setRandom();
     console.warn(randomCocktail);
   }, []);
 
   return (
     <>
-      <Cocktail cocktail={randomCocktail} />
-
+      <Card>
+        <CardBody>
+          <p>{randomCocktail[0]?.strDrink}</p>
+          <p>{randomCocktail[0]?.strGlass}</p>
+          <div className="measures">
+            <div className="amounts">
+              {randomCocktail.amounts?.map((item) => <div key={item.idDrink}>{item}</div>)}
+            </div>
+            <div className="ingredients">
+              {randomCocktail.ingredients?.map((item) => <div key={item.idDrink}>{item}</div>)}
+            </div>
+          </div>
+          <p>{randomCocktail[0]?.strInstructions}</p>
+        </CardBody>
+      </Card>
       <Button onClick={setRandom}>Refresh</Button>
     </>
   );
