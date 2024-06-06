@@ -90,7 +90,7 @@ export default function Search() {
               aria-label="glass-select"
               name="glass"
               onChange={handleGlassChange}
-              value="glass"
+              value={formInput}
             >
               <option value="">Glass</option>
               {
@@ -108,9 +108,9 @@ export default function Search() {
         </Form>
       </div>
       <div className="results">
-        {!none ? (
+        {none ? ('No results found') : (
           results?.map((cocktail) => (<Cocktail cocktail={cocktail} key={cocktail.idDrink} />))
-        ) : ('No results found')}
+        )}
       </div>
     </>
   );

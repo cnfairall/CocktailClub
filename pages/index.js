@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <Card style={{ width: '18em' }}>
         <CardBody>
-          <Image style={{ width: '200px' }} src={randomCocktail[0].strDrinkThumb} />
+          <Image style={{ width: '200px' }} src={randomCocktail[0]?.strDrinkThumb} />
           <p>{randomCocktail[0]?.strDrink}</p>
           <p>{randomCocktail[0]?.strGlass}</p>
           <div className="measures">
