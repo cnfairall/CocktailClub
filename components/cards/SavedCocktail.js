@@ -41,7 +41,7 @@ export default function SavedCocktail({ savedCocktail }) {
             <>
               <p>{savedCocktail.grade}</p>
               <p>{savedCocktail.notes}</p>
-              <Button onCLick={shareACocktail}>Share</Button>
+              <Button onClick={shareACocktail}>Share</Button>
               <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
                 <Button>Edit notes</Button>
               </Link>
