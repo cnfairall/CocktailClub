@@ -26,10 +26,17 @@ export default function SavedCocktail({ savedCocktail }) {
             <p>{ci.amount} {ci.ingredient?.name}</p>
           ))}
           <p>{savedCocktail?.instructions}</p>
-          {savedCocktail?.made === true && (
+          {savedCocktail?.made === true ? (
             <>
               <p>{savedCocktail.grade}</p>
               <p>{savedCocktail.notes}</p>
+              <Button>Share</Button>
+              <Button>Edit notes</Button>
+            </>
+          ) : (
+            <>
+              <Button>Unsave</Button>
+              <Button>Review</Button>
             </>
           )}
         </>

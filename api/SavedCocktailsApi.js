@@ -22,7 +22,15 @@ const getSavedCocktails = (userId) => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => {
+      if (data) {
+        const unmadeCocktails = data.filter((cocktail) => (cocktail.made === false));
+        const madeCocktails = data.filter((cocktail) => (cocktail.made === true));
+        resolve({ unmadeCocktails, madeCocktails });
+      } else {
+        resolve([]);
+      }
+    })
     .catch(reject);
 });
 
