@@ -4,14 +4,25 @@ import {
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import saveCocktail from '../../api/SavedCocktailsApi';
+import { useAuth } from '../../utils/context/authContext';
+import { getCocktailDto } from '../../api/CocktailsApi';
 
 export default function Cocktail({ cocktail }) {
   const router = useRouter();
+  const { user } = useAuth();
+
+  const saveThisCocktail = () => {
+    getCocktailDto(cocktail[0].idDrink).then((resp) => {
+      saveCocktail(resp[0], user.id).then(router.push('/saved'));
+    });
+  };
+
   return (
-    <Card>
-      {router.asPath === '/search' ? (
+    <Card style={{ margin: '20px' }}>
+      {router.pathname === '/search' ? (
         <>
-          <CardBody style={{ width: '18rem', margin: '20px', flex: '0 1 30%' }}>
+          <CardBody style={{ width: '18rem', flex: '0 1 30%' }}>
             <Image style={{ width: '200px' }} src={cocktail?.strDrinkThumb} />
             <p>{cocktail?.strDrink}</p>
           </CardBody>
@@ -36,7 +47,7 @@ export default function Cocktail({ cocktail }) {
             </div>
             <p>{cocktail?.strInstructions}</p>
           </CardBody>
-          <Button>Save Cocktail</Button>
+          <Button onClick={saveThisCocktail}>Save Cocktail</Button>
         </>
       )}
     </Card>
@@ -44,7 +55,6 @@ export default function Cocktail({ cocktail }) {
 }
 
 Cocktail.propTypes = {
-  idDrink: PropTypes.string.isRequired,
   cocktail: PropTypes.shape({
     idDrink: PropTypes.string,
     strDrink: PropTypes.string,

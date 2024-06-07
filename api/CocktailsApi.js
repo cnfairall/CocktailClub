@@ -31,7 +31,19 @@ const getCocktailbyDrinkId = (drinkId) => new Promise((resolve, reject) => {
       } else {
         resolve([]);
       }
-    });
+    }).catch(reject);
+});
+
+const getCocktailDto = (drinkId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/cocktails/drinkId/${drinkId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
 });
 
 const getCocktailsBySpirit = (spirit) => new Promise((resolve, reject) => {
@@ -80,5 +92,5 @@ const getRandomCocktail = () => new Promise((resolve, reject) => {
 });
 
 export {
-  getCocktailByName, getCocktailbyDrinkId, getCocktailsByGlass, getCocktailsBySpirit, getRandomCocktail,
+  getCocktailByName, getCocktailbyDrinkId, getCocktailsByGlass, getCocktailsBySpirit, getRandomCocktail, getCocktailDto,
 };
