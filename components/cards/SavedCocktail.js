@@ -4,9 +4,20 @@ import {
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { unsaveCocktail, shareCocktail } from '../../api/SavedCocktailsApi';
 
 export default function SavedCocktail({ savedCocktail }) {
   const router = useRouter();
+
+  const removeCocktail = () => {
+    if (window.confirm('Are you sure you want to remove this cocktail?')) {
+      unsaveCocktail(savedCocktail.id).then(router.push('/saved'));
+    }
+  };
+
+  const shareACocktail = () => {
+    shareCocktail(savedCocktail.id).then(router.push('/share'));
+  };
 
   return (
     <Card style={{ margin: '20px' }}>
@@ -30,13 +41,17 @@ export default function SavedCocktail({ savedCocktail }) {
             <>
               <p>{savedCocktail.grade}</p>
               <p>{savedCocktail.notes}</p>
-              <Button>Share</Button>
-              <Button>Edit notes</Button>
+              <Button onCLick={shareACocktail}>Share</Button>
+              <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
+                <Button>Edit notes</Button>
+              </Link>
             </>
           ) : (
             <>
-              <Button>Unsave</Button>
-              <Button>Review</Button>
+              <Button onClick={removeCocktail}>Unsave</Button>
+              <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
+                <Button>Review</Button>
+              </Link>
             </>
           )}
         </>
