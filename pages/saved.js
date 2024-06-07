@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Tab, Tabs } from 'react-bootstrap';
 import { getSavedCocktails } from '../api/SavedCocktailsApi';
 import { useAuth } from '../utils/context/authContext';
 import SavedCocktail from '../components/cards/SavedCocktail';
@@ -13,9 +14,26 @@ export default function SavedCocktails() {
 
   return (
     <>
-      {savedCocktails.map((sc) => (
-        <SavedCocktail savedCocktail={sc} key={sc.id} />
-      ))}
+      <Tabs
+        defaultActiveKey="unmade"
+        id="made-unmade"
+        className="mb-3"
+      >
+        <Tab eventKey="unmade" title="To try">
+          <div id="unmade">
+            {savedCocktails.unmadeCocktails?.map((cocktail) => (
+              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} />
+            ))}
+          </div>
+        </Tab>
+        <Tab eventKey="made" title="Made">
+          <div id="made" className="column">
+            {savedCocktails.madeCocktails?.map((cocktail) => (
+              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} />
+            ))}
+          </div>
+        </Tab>
+      </Tabs>
     </>
   );
 }

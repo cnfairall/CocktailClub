@@ -22,7 +22,15 @@ const getSavedCocktails = (userId) => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => {
+      if (data) {
+        const unmadeCocktails = data.filter((cocktail) => (cocktail.made === false));
+        const madeCocktails = data.filter((cocktail) => (cocktail.made === true));
+        resolve({ unmadeCocktails, madeCocktails });
+      } else {
+        resolve([]);
+      }
+    })
     .catch(reject);
 });
 
@@ -38,4 +46,41 @@ const getSavedCocktailDetails = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { saveCocktail, getSavedCocktails, getSavedCocktailDetails };
+const unsaveCocktail = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/savedcocktails/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const reviewCocktail = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/savedcocktails/review`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const shareCocktail = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/savedcocktails/share/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export {
+  saveCocktail, getSavedCocktails, getSavedCocktailDetails, unsaveCocktail, reviewCocktail, shareCocktail,
+};
