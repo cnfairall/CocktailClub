@@ -71,8 +71,8 @@ const reviewCocktail = (payload) => new Promise((resolve, reject) => {
 });
 
 const shareCocktail = (id) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/api/savedcocktails/share/${id}`, {
-    method: 'PATCH',
+  fetch(`${endpoint}/api/savedcocktails/${id}/share`, {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
