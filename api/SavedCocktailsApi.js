@@ -81,6 +81,28 @@ const shareCocktail = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getPublicCocktails = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/savedcocktails/public`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const addPublicToSaved = (cocktailId, userId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/savedcocktails/${cocktailId}/add/${userId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  saveCocktail, getSavedCocktails, getSavedCocktailDetails, unsaveCocktail, reviewCocktail, shareCocktail,
+  saveCocktail, getSavedCocktails, getSavedCocktailDetails, unsaveCocktail, reviewCocktail, shareCocktail, getPublicCocktails, addPublicToSaved,
 };

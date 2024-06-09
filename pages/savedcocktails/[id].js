@@ -8,11 +8,15 @@ export default function CocktailDetailPage() {
   const { id } = router.query;
   const [savedCocktail, setSavedCocktail] = useState({});
 
-  useEffect(() => {
+  const getCocktail = () => {
     getSavedCocktailDetails(id).then(setSavedCocktail);
+  };
+
+  useEffect(() => {
+    getCocktail();
   }, [id]);
 
   return (
-    <SavedCocktail savedCocktail={savedCocktail} />
+    <SavedCocktail savedCocktail={savedCocktail} onUpdate={getCocktail} />
   );
 }

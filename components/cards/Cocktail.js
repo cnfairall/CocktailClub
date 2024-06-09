@@ -4,17 +4,17 @@ import {
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import saveCocktail from '../../api/SavedCocktailsApi';
+import { saveCocktail } from '../../api/SavedCocktailsApi';
 import { useAuth } from '../../utils/context/authContext';
 import { getCocktailDto } from '../../api/CocktailsApi';
 
-export default function Cocktail({ cocktail }) {
+export default function Cocktail({ cocktail, onUpdate }) {
   const router = useRouter();
   const { user } = useAuth();
 
   const saveThisCocktail = () => {
     getCocktailDto(cocktail[0].idDrink).then((resp) => {
-      saveCocktail(resp[0], user.id).then(router.push('/saved'));
+      saveCocktail(resp[0], user.id).then(onUpdate());
     });
   };
 
@@ -45,7 +45,7 @@ export default function Cocktail({ cocktail }) {
                 {cocktail.ingredients?.map((item) => <div key={item.idDrink}>{item}</div>)}
               </div>
             </div>
-            <p>{cocktail?.strInstructions}</p>
+            <p>{cocktail[0]?.strInstructions}</p>
           </CardBody>
           <Button onClick={saveThisCocktail}>Save Cocktail</Button>
         </>
@@ -65,4 +65,5 @@ Cocktail.propTypes = {
     amounts: PropTypes.arrayOf(PropTypes.string),
     cocktailIngredients: PropTypes.objectOf(PropTypes.keys, PropTypes.values),
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
