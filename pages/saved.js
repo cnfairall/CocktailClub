@@ -8,9 +8,13 @@ export default function SavedCocktails() {
   const [savedCocktails, setSavedCocktails] = useState([]);
   const { user } = useAuth();
 
-  useEffect(() => {
+  const getCocktails = () => {
     getSavedCocktails(user.id).then(setSavedCocktails);
-  }, [user]);
+  };
+
+  useEffect(() => {
+    getCocktails();
+  }, []);
 
   return (
     <>
@@ -22,14 +26,14 @@ export default function SavedCocktails() {
         <Tab eventKey="unmade" title="To try">
           <div id="unmade">
             {savedCocktails.unmadeCocktails?.map((cocktail) => (
-              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} />
+              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} onUpdate={getCocktails} />
             ))}
           </div>
         </Tab>
         <Tab eventKey="made" title="Made">
           <div id="made" className="column">
             {savedCocktails.madeCocktails?.map((cocktail) => (
-              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} />
+              <SavedCocktail savedCocktail={cocktail} key={cocktail.id} onUpdate={getCocktails} />
             ))}
           </div>
         </Tab>

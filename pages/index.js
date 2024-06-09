@@ -1,16 +1,26 @@
 import { useEffect, useState } from 'react';
 import {
-  Button, Card, CardBody, Image,
+  Button, Modal,
 } from 'react-bootstrap';
 import { getRandomCocktail } from '../api/CocktailsApi';
+import Cocktail from '../components/cards/Cocktail';
 
 export default function Home() {
   const [randomCocktail, setRandomCocktail] = useState({});
+  const [show, setShow] = useState(false);
 
   const setRandom = () => {
     getRandomCocktail().then((resp) => {
       setRandomCocktail(resp);
     });
+  };
+
+  const handleShow = () => {
+    setShow(true);
+  };
+
+  const handleClose = () => {
+    setShow(false);
   };
 
   useEffect(() => {
@@ -19,23 +29,14 @@ export default function Home() {
 
   return (
     <>
-      <Card style={{ width: '18em' }}>
-        <CardBody>
-          <Image style={{ width: '200px' }} src={randomCocktail[0]?.strDrinkThumb} />
-          <p>{randomCocktail[0]?.strDrink}</p>
-          <p>{randomCocktail[0]?.strGlass}</p>
-          <div className="measures">
-            <div className="amounts">
-              {randomCocktail.amounts?.map((item) => <div>{item}</div>)}
-            </div>
-            <div className="ingredients">
-              {randomCocktail.ingredients?.map((item) => <div>{item}</div>)}
-            </div>
-          </div>
-          <p>{randomCocktail[0]?.strInstructions}</p>
-        </CardBody>
-      </Card>
+      <Cocktail cocktail={randomCocktail} onUpdate={handleShow} />
       <Button onClick={setRandom}>Refresh</Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton />
+        <Modal.Body>
+          <p>Cocktail saved!</p>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
