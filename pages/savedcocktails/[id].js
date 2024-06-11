@@ -17,6 +17,8 @@ export default function CocktailDetailPage() {
   }, [id]);
 
   return (
-    <SavedCocktail savedCocktail={savedCocktail} onUpdate={getCocktail} />
+    <div className="center">
+      <SavedCocktail savedCocktail={savedCocktail} onUpdate={getCocktail} />
+    </div>
   );
 }

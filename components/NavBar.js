@@ -6,15 +6,16 @@ import {
   Container,
   Nav,
   Button,
+  Image,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar id="nav" collapseOnSelect expand="lg" variant="dark">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>Cocktail Club</Navbar.Brand>
+          <Image id="logo" src="/images/ccblack.png" />
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -28,7 +29,7 @@ export default function NavBar() {
             <Link passHref href="/share">
               <Nav.Link>Share</Nav.Link>
             </Link>
-            <Button variant="danger" onClick={signOut}>
+            <Button id="sign-out" onClick={signOut}>
               Sign Out
             </Button>
           </Nav>

@@ -20,7 +20,7 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
   };
 
   const removeCocktail = () => {
-    unsaveCocktail(savedCocktail.id).then(onUpdate());
+    unsaveCocktail(savedCocktail.id).then(router.push('/saved'));
   };
 
   const shareACocktail = () => {
@@ -29,50 +29,55 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
 
   return (
     <>
-      <Card style={{ margin: '20px' }}>
-        <CardBody style={{ width: '18rem', flex: '0 1 30%' }}>
-          <Image style={{ width: '200px' }} src={savedCocktail.imageUrl} />
-          <p>{savedCocktail.name}</p>
+      <Card className={router.pathname.includes('/savedcocktails') ? 'lgCard' : 'smCard'}>
+        <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <Image rounded className={router.pathname.includes('/savedcocktails') ? 'lgPic' : 'smPic'} src={savedCocktail.imageUrl} />
+          <div className="title">{savedCocktail.name}</div>
 
           {router.pathname === '/saved' && (
-          <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
-            <Button>Details</Button>
-          </Link>
+            <div className="corner">
+              <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
+                <i className="fs-2 bi bi-eye-fill" />
+              </Link>
+            </div>
           )}
         </CardBody>
 
         {router.pathname.includes('/savedcocktails') && (
-          <>
-            <p>{savedCocktail.glass?.name}</p>
-            {savedCocktail.cocktailIngredients?.map((ci) => (
-              <p>{ci.amount} {ci.ingredient?.name}</p>
-            ))}
-            <p>{savedCocktail?.instructions}</p>
-            {savedCocktail?.made === true ? (
-              <>
-                <p>{savedCocktail.grade}</p>
-                <p>{savedCocktail.notes}</p>
-                {savedCocktail.public === true ? (
-                  <p>Shared</p>
-                ) : (
-                  <>
-                    <p>Private</p>
-                    <Button onClick={shareACocktail}>Share</Button>
-                  </>
-                )}
-                <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
-                  <Button>Edit notes</Button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Button onClick={handleShow}>Unsave</Button>
-                <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
-                  <Button>Review</Button>
-                </Link>
-              </>
-            )}
-          </>
+          <CardBody style={{ display: 'flex' }}>
+            <div className="info">
+
+              <p>{savedCocktail.glass?.name}</p>
+              {savedCocktail.cocktailIngredients?.map((ci) => (
+                <p>{ci.amount} {ci.ingredient?.name}</p>
+              ))}
+              <p>{savedCocktail?.instructions}</p>
+              {savedCocktail?.made === true ? (
+                <>
+                  <p>{savedCocktail.grade}</p>
+                  <p>{savedCocktail.notes}</p>
+                  {savedCocktail.public === true ? (
+                    <p>Shared</p>
+                  ) : (
+                    <>
+                      <p>Private</p>
+                      <Button onClick={shareACocktail}>Share</Button>
+                    </>
+                  )}
+                  <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
+                    <Button>Edit notes</Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Button onClick={handleShow}>Unsave</Button>
+                  <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
+                    <Button>Review</Button>
+                  </Link>
+                </>
+              )}
+            </div>
+          </CardBody>
         )}
       </Card>
 

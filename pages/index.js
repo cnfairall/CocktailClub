@@ -29,8 +29,12 @@ export default function Home() {
 
   return (
     <>
-      <Cocktail cocktail={randomCocktail} onUpdate={handleShow} />
-      <Button onClick={setRandom}>Refresh</Button>
+      <div>
+        <p className="shrikhand">Random Cocktail</p>
+        <Cocktail cocktail={randomCocktail} onUpdate={handleShow} />
+        <Button onClick={setRandom}>Refresh</Button>
+
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton />
         <Modal.Body>

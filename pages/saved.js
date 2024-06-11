@@ -21,17 +21,17 @@ export default function SavedCocktails() {
       <Tabs
         defaultActiveKey="unmade"
         id="made-unmade"
-        className="mb-3"
+        className="mb-3 caprasimo"
       >
         <Tab eventKey="unmade" title="To try">
-          <div id="unmade">
+          <div className="list">
             {savedCocktails.unmadeCocktails?.map((cocktail) => (
               <SavedCocktail savedCocktail={cocktail} key={cocktail.id} onUpdate={getCocktails} />
             ))}
           </div>
         </Tab>
         <Tab eventKey="made" title="Made">
-          <div id="made" className="column">
+          <div className="list">
             {savedCocktails.madeCocktails?.map((cocktail) => (
               <SavedCocktail savedCocktail={cocktail} key={cocktail.id} onUpdate={getCocktails} />
             ))}

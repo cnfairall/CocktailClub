@@ -27,6 +27,7 @@ export default function Search() {
       if (resp === 'no cocktails found') {
         setNone(true);
       } else {
+        setNone(false);
         setResults(resp);
       }
     });
@@ -41,6 +42,7 @@ export default function Search() {
       if (resp === 'no cocktails found') {
         setNone(true);
       } else {
+        setNone(false);
         setResults(resp);
       }
     });
@@ -52,6 +54,7 @@ export default function Search() {
         if (resp === 'no cocktails found') {
           setNone(true);
         } else {
+          setNone(false);
           setResults(resp);
         }
       });
