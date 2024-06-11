@@ -8,11 +8,17 @@ export default function CocktailDetailPage() {
   const { idDrink } = router.query;
   const [cocktail, setCocktail] = useState({});
 
-  useEffect(() => {
+  const getCocktail = () => {
     getCocktailbyDrinkId(idDrink).then(setCocktail);
+  };
+
+  useEffect(() => {
+    getCocktail();
   }, [idDrink]);
 
   return (
-    <Cocktail cocktail={cocktail} />
+    <div className="center">
+      <Cocktail cocktail={cocktail} />
+    </div>
   );
 }

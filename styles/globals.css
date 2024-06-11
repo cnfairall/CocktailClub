@@ -1,4 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=Caprasimo&family=Sometype+Mono');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 html,
 body {
@@ -17,13 +19,47 @@ a {
   box-sizing: border-box;
 }
 
-body {
-  background-color: #88effd;
+#nav {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  height: 60px;
+  margin: 10px;
+  margin-bottom: 20px;
+  }
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  --bs-navbar-active-color: rgb(11, 92, 43)
+}
+
+.nav-link {
+  color: #acb420;
+  font-family: Montserrat;
+  --bs-nav-link-hover-color: rgb(11, 92, 43);
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.nav-link.active {
+  color: rgb(11, 92, 43);
+}
+    
+body { 
+ background-color: rgb(247, 247, 241);
+ font-family: Montserrat;
+}
+
+#logo {
+  width: 300px;
 }
 
 .measures {
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .amounts {
@@ -39,4 +75,97 @@ body {
 .results {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
+
+.btn {
+  background-color: rgb(11, 92, 43);
+  border: 1px solid black;
+  color: white;
+  --bs-btn-hover-bg: #acb420;
+  --bs-btn-hover-border-color: #acb420;
+}
+
+#sign-out {
+  margin-left: 50px;
+}
+
+.card {
+background-color: transparent;
+border: 1px solid black;
+border-radius: 8px;
+}
+
+.info {
+  margin-left: 20px;
+  text-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shrikhand {
+  font-family: Shrikhand;
+  font-size: 30px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.caprasimo
+{
+  font-family: Caprasimo;
+}
+
+.nav {
+  --bs-link-color: white;
+  --bs-nav-link-hover-color: white;
+  font-size: 20px;
+  /* text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; */
+}
+
+.title {
+  font-size: 30px;
+  font-family: Caprasimo;
+}
+
+.corner {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bi {
+  color: #acb420;
+}
+
+.smCard {
+  margin: 20px;
+  /* max-width: 30rem; */
+  flex: 0 1 20%;
+}
+
+.lgCard {
+  width: 60rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.smPic {
+  height: 200px;
+  margin-right: 10px
+}
+
+.lgPic {
+  width: 400px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+/* .card-body {
+  justify-content: space-evenly;
+} */

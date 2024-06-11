@@ -20,7 +20,7 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
   return (
     <Card style={{ margin: '20px' }}>
       <CardBody style={{ width: '18rem', flex: '0 1 30%' }}>
-        <Image style={{ width: '200px' }} src={savedCocktail.imageUrl} />
+        <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
         <p>{savedCocktail.name}</p>
 
         <p>{savedCocktail.glass?.name}</p>
