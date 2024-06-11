@@ -142,12 +142,12 @@ border-radius: 8px;
 
 .smCard {
   margin: 20px;
-  max-width: 25rem;
-  flex: 0 1 30%;
+  /* max-width: 30rem; */
+  flex: 0 1 20%;
 }
 
 .lgCard {
-  width: 50rem;
+  width: 60rem;
 }
 
 .center {
@@ -157,12 +157,15 @@ border-radius: 8px;
 
 .smPic {
   height: 200px;
+  margin-right: 10px
 }
 
 .lgPic {
   width: 400px;
+  margin-right: 20px;
+  margin-bottom: 10px;
 }
 
-.card-body {
+/* .card-body {
   justify-content: space-evenly;
-}
+} */

@@ -19,12 +19,12 @@ export default function Cocktail({ cocktail }) {
   };
 
   return (
-    <Card className={router.pathname === '/search' || router.pathname === '/' ? 'smCard' : 'lgCard'}>
+    <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
       {router.pathname === '/search' ? (
 
         <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <p className="title">{cocktail?.strDrink}</p>
-          <Image rounded style={{ width: '200px' }} src={cocktail?.strDrinkThumb} />
+          <Image rounded className="smPic" src={cocktail?.strDrinkThumb} />
           <div className="corner">
             <Link passHref href={`/cocktails/${cocktail.idDrink}`}>
               <i className="fs-2 bi bi-eye-fill" />
@@ -35,7 +35,7 @@ export default function Cocktail({ cocktail }) {
       ) : (
         <>
           <CardBody style={{ display: 'flex' }}>
-            <Image rounded className={router.pathname === '/' ? 'smPic' : 'lgPic'} src={cocktail[0]?.strDrinkThumb} />
+            <Image rounded className="lgPic" src={cocktail[0]?.strDrinkThumb} />
             <div className="info">
               <div>
                 <p className="title">{cocktail[0]?.strDrink}</p>

@@ -30,53 +30,64 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
   return (
     <>
       <Card className={router.pathname.includes('/savedcocktails') ? 'lgCard' : 'smCard'}>
-        <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <Image rounded className={router.pathname.includes('/savedcocktails') ? 'lgPic' : 'smPic'} src={savedCocktail.imageUrl} />
-          <div className="title">{savedCocktail.name}</div>
 
-          {router.pathname === '/saved' && (
+        {router.pathname === '/saved' && (
+          <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Image rounded className="smPic" src={savedCocktail.imageUrl} />
+            <div className="title">{savedCocktail.name}</div>
+
             <div className="corner">
               <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
                 <i className="fs-2 bi bi-eye-fill" />
               </Link>
             </div>
-          )}
-        </CardBody>
+          </CardBody>
+        )}
 
         {router.pathname.includes('/savedcocktails') && (
-          <CardBody style={{ display: 'flex' }}>
-            <div className="info">
+          <CardBody style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex' }}>
+              <Image rounded className="lgPic" src={savedCocktail.imageUrl} />
+              <div>
+                <div className="title">{savedCocktail.name}</div>
+                {/* <div className="info"> */}
+                <p><strong>{savedCocktail.glass?.name}</strong></p>
+                {savedCocktail.cocktailIngredients?.map((ci) => (
+                  <p>{ci.amount} {ci.ingredient?.name}</p>
+                ))}
+                <p>{savedCocktail?.instructions}</p>
+              </div>
+            </div>
 
-              <p>{savedCocktail.glass?.name}</p>
-              {savedCocktail.cocktailIngredients?.map((ci) => (
-                <p>{ci.amount} {ci.ingredient?.name}</p>
-              ))}
-              <p>{savedCocktail?.instructions}</p>
               {savedCocktail?.made === true ? (
-                <>
-                  <p>{savedCocktail.grade}</p>
-                  <p>{savedCocktail.notes}</p>
-                  {savedCocktail.public === true ? (
-                    <p>Shared</p>
-                  ) : (
-                    <>
-                      <p>Private</p>
-                      <Button onClick={shareACocktail}>Share</Button>
-                    </>
-                  )}
-                  <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
-                    <Button>Edit notes</Button>
-                  </Link>
-                </>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div><strong>Grade:</strong> {savedCocktail.grade}</div>
+                    <div><strong>Notes:</strong> {savedCocktail.notes}</div>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                    {savedCocktail.public === true ? (
+                      <i className="bi bi-cloud-check-fill fs-2" />) : (
+                        <>
+                          <Button style={{ marginBottom: '10px' }} onClick={shareACocktail}>
+                            Share
+                          </Button>
+                        </>
+                    )}
+                    <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
+                      <Button>Edit notes</Button>
+                    </Link>
+                  </div>
+                </div>
               ) : (
-                <>
-                  <Button onClick={handleShow}>Unsave</Button>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                  <Button style={{ marginBottom: '10px' }} onClick={handleShow}>Unsave</Button>
                   <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
                     <Button>Review</Button>
                   </Link>
-                </>
+                </div>
               )}
-            </div>
+            {/* </div> */}
           </CardBody>
         )}
       </Card>
@@ -85,7 +96,7 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
         <Modal.Header closeButton />
         <Modal.Body>
           <p>Are you sure you want to remove this cocktail?</p>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button style={{ marginRight: '10px' }} onClick={handleClose}>Cancel</Button>
           <Button onClick={removeCocktail}>Unsave</Button>
         </Modal.Body>
       </Modal>
