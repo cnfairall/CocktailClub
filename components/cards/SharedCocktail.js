@@ -35,19 +35,18 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
           </div>
         </div>
 
-        <p>{savedCocktail.grade}</p>
-        <p>{savedCocktail.notes}</p>
+        <p><strong>Grade:</strong>{savedCocktail.grade}</p>
+        <p><strong>Notes:</strong>{savedCocktail.notes}</p>
+        {added ? (
+          <div className="corner">
+            <Button>Added</Button>
+          </div>
+        ) : (
+          <div className="corner">
+            <Button onClick={addCocktail}>Add to my saved</Button>
+          </div>
+        )}
       </CardBody>
-      {added ? (
-        <div className="corner">
-          <Button>Added</Button>
-        </div>
-      ) : (
-        <div className="corner">
-          <Button onClick={addCocktail}>Add to my saved</Button>
-        </div>
-      )}
-
     </Card>
   );
 }

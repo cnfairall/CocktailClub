@@ -28,17 +28,17 @@ export default function UserCard({ user }) {
       <Card style={{ width: '15rem' }}>
         <CardBody className="column">
           <CardImg src={user?.imageUrl} />
-          <h2 className="shrikhand">{user?.username}</h2>
+          <h2 className="title">{user?.username}</h2>
           <p>{user?.firstName} {user?.lastName}</p>
           <p>{user?.email}</p>
           <p>{user?.bio}</p>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <Link passHref href="/edituser">
+              <Button style={{ marginBottom: '10px' }}>Edit</Button>
+            </Link>
+            <Button onClick={handleShow}>Delete</Button>
+          </div>
         </CardBody>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <Link passHref href="/edituser">
-            <Button>Edit</Button>
-          </Link>
-          <Button onClick={handleShow}>Delete</Button>
-        </div>
       </Card>
 
       <Modal show={show} onHide={handleClose}>
