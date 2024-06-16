@@ -27,7 +27,7 @@ function Share() {
 
   return (
     <div className="row">
-      <div className="column">
+      <div className="column" style={{ width: '20%' }}>
         <UserCard user={appUser} updateUser={updateUser} />
       </div>
       <div className="column">

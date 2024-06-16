@@ -50,7 +50,6 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
               <Image rounded className="lgPic" src={savedCocktail.imageUrl} />
               <div>
                 <div className="title">{savedCocktail.name}</div>
-                {/* <div className="info"> */}
                 <p><strong>{savedCocktail.glass?.name}</strong></p>
                 {savedCocktail.cocktailIngredients?.map((ci) => (
                   <p>{ci.amount} {ci.ingredient?.name}</p>

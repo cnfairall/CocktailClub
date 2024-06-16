@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import {
   Button,
-  Card, CardBody, CardImg, CardTitle, Modal,
+  Card, CardBody, CardImg, Modal,
 } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { deleteUser } from '../../api/UsersApi';
@@ -25,25 +25,29 @@ export default function UserCard({ user }) {
 
   return (
     <>
-      <Card>
-        <CardTitle>{user?.username}</CardTitle>
-        <CardBody>
+      <Card style={{ width: '15rem' }}>
+        <CardBody className="column">
           <CardImg src={user?.imageUrl} />
+          <h2 className="shrikhand">{user?.username}</h2>
           <p>{user?.firstName} {user?.lastName}</p>
           <p>{user?.email}</p>
           <p>{user?.bio}</p>
         </CardBody>
-        <Link passHref href="/edituser">
-          <Button>Edit</Button>
-        </Link>
-        <Button onClick={handleShow}>Delete</Button>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          <Link passHref href="/edituser">
+            <Button>Edit</Button>
+          </Link>
+          <Button onClick={handleShow}>Delete</Button>
+        </div>
       </Card>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <div>Are you sure you want to delete your account?</div>
-          <Button onClick={deleteAccount}>Delete</Button>
-          <Button onClick={handleClose}>Cancel</Button>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <Button onClick={deleteAccount}>Delete</Button>
+            <Button onClick={handleClose}>Cancel</Button>
+          </div>
         </Modal.Body>
       </Modal>
     </>

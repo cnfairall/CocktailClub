@@ -48,37 +48,42 @@ function ReviewForm({ savedCocktail }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3">
-        <Form.Label>Grade</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="ex. A-"
-          name="grade"
-          value={formData.grade}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Notes</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="describe your experience"
-          name="notes"
-          value={formData.notes}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Save review
-      </Button>
-    </Form>
+    <div className="center">
+      <h1 className="shrikhand">Review {savedCocktail.name}</h1>
+      <Form style={{ width: '60%' }} onSubmit={handleSubmit}>
+        <Form.Group className="mt-3 mb-3">
+          <Form.Label className="shrikhand">Grade</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="ex. A-"
+            name="grade"
+            value={formData.grade}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className="shrikhand">Notes</Form.Label>
+          <Form.Control
+            as="textarea"
+            type="text"
+            placeholder="Describe your experience"
+            name="notes"
+            value={formData.notes}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Save review
+        </Button>
+      </Form>
+    </div>
   );
 }
 
 ReviewForm.propTypes = {
   savedCocktail: PropTypes.shape({
     id: PropTypes.number,
+    name: PropTypes.string,
     notes: PropTypes.string,
     grade: PropTypes.string,
     made: PropTypes.bool,

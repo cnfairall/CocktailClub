@@ -63,6 +63,7 @@ export default function Search() {
 
   return (
     <>
+      <h1 className="title">Find a new cocktail</h1>
       <div className="search">
         <SearchBar onSearch={getName} />
         <Form>

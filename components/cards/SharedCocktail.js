@@ -19,23 +19,33 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
 
   return (
     <Card style={{ margin: '20px' }}>
-      <CardBody style={{ width: '18rem', flex: '0 1 30%' }}>
-        <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
-        <p>{savedCocktail.name}</p>
-
-        <p>{savedCocktail.glass?.name}</p>
-        {savedCocktail.cocktailIngredients?.map((ci) => (
-          <p>{ci.amount} {ci.ingredient?.name}</p>
-        ))}
-        <p>{savedCocktail?.instructions}</p>
+      <CardBody style={{
+        display: 'flex', flexDirection: 'column', width: '18rem', flex: '0 1 30%',
+      }}
+      >
+        <div className="row">
+          <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
+          <div className="column">
+            <h1 className="title">{savedCocktail.name}</h1>
+            <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
+            {savedCocktail.cocktailIngredients?.map((ci) => (
+              <p>{ci.amount} {ci.ingredient?.name}</p>
+            ))}
+            <p>{savedCocktail?.instructions}</p>
+          </div>
+        </div>
 
         <p>{savedCocktail.grade}</p>
         <p>{savedCocktail.notes}</p>
       </CardBody>
       {added ? (
-        <Button>Added</Button>
+        <div className="corner">
+          <Button>Added</Button>
+        </div>
       ) : (
-        <Button onClick={addCocktail}>Add to my saved</Button>
+        <div className="corner">
+          <Button onClick={addCocktail}>Add to my saved</Button>
+        </div>
       )}
 
     </Card>

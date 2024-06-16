@@ -54,72 +54,75 @@ function RegisterForm({ user, updateUser }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter First Name"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Last Name"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Photo</Form.Label>
-        <Form.Control
-          type="url"
-          placeholder="Enter image URL"
-          name="imageUrl"
-          value={formData.imageUrl}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Username</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Bio</Form.Label>
-        <Form.Control
-          type="text"
-          as="textarea"
-          placeholder="Enter bio"
-          name="bio"
-          value={formData.bio}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className="center">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter First Name"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Last Name"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Photo</Form.Label>
+          <Form.Control
+            type="url"
+            placeholder="Enter image URL"
+            name="imageUrl"
+            value={formData.imageUrl}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Bio</Form.Label>
+          <Form.Control
+            type="text"
+            as="textarea"
+            placeholder="Enter bio"
+            name="bio"
+            value={formData.bio}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
+
   );
 }
 
