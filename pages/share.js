@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
@@ -25,12 +26,17 @@ function Share() {
   }, []);
 
   return (
-    <>
-      <UserCard user={appUser} updateUser={updateUser} />
-      {publicCocktails.map((cocktail) => (
-        <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} />
-      ))}
-    </>
+    <div className="row">
+      <div className="column">
+        <UserCard user={appUser} updateUser={updateUser} />
+      </div>
+      <div className="column">
+        <h1 className="shrikhand">What's the buzz</h1>
+        {publicCocktails.map((cocktail) => (
+          <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} />
+        ))}
+      </div>
+    </div>
   );
 }
 export default Share;
