@@ -20,32 +20,31 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
   return (
     <Card style={{ margin: '20px' }}>
       <CardBody style={{
-        display: 'flex', flexDirection: 'column', width: '18rem', flex: '0 1 30%',
+        display: 'flex', flex: '0 1 30%',
       }}
       >
-        <div className="row">
-          <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
-          <div className="column">
-            <h1 className="title">{savedCocktail.name}</h1>
-            <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
-            {savedCocktail.cocktailIngredients?.map((ci) => (
-              <p>{ci.amount} {ci.ingredient?.name}</p>
-            ))}
-            <p>{savedCocktail?.instructions}</p>
-          </div>
+        <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
+        <div className="column">
+          <h1 className="title">{savedCocktail.name}</h1>
+          <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
+          {savedCocktail.cocktailIngredients?.map((ci) => (
+            <p>{ci.amount} {ci.ingredient?.name}</p>
+          ))}
+          <p>{savedCocktail?.instructions}</p>
         </div>
-
-        <p><strong>Grade:</strong>{savedCocktail.grade}</p>
-        <p><strong>Notes:</strong>{savedCocktail.notes}</p>
-        {added ? (
-          <div className="corner">
-            <Button>Added</Button>
-          </div>
-        ) : (
-          <div className="corner">
-            <Button onClick={addCocktail}>Add to my saved</Button>
-          </div>
-        )}
+        <div className="column">
+          <p><strong>Grade:</strong> {savedCocktail.grade}</p>
+          <p><strong>Notes:</strong> {savedCocktail.notes}</p>
+          {added ? (
+            <div className="corner">
+              <Button>Added</Button>
+            </div>
+          ) : (
+            <div className="corner">
+              <Button onClick={addCocktail}>Add to my saved</Button>
+            </div>
+          )}
+        </div>
       </CardBody>
     </Card>
   );

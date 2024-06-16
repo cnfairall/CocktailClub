@@ -26,7 +26,10 @@ function Share() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div style={{
+      display: 'flex', flexDirection: 'row', justifyItems: 'space-evenly', justifyContent: 'space-evenly',
+    }}
+    >
       <div className="column" style={{ width: '20%' }}>
         <UserCard user={appUser} updateUser={updateUser} />
       </div>
