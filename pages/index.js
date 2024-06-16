@@ -36,13 +36,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex' }}>
+    <div className="center" style={{ alignItems: 'space-evenly' }}>
+      <div style={{ display: 'flex', marginTop: '20px' }}>
         <div style={{ width: '30%', display: 'flex', flexDirection: 'column' }}>
           <h1 className="shrikhand">Hello, {user.firstName}</h1>
-          <p>Discover and save unique cocktail recipes to make at home.</p>
-          <p>Review recipes and keep track of hits and misses.</p>
-          <p>Check out the Share page to see what others are making!</p>
+          <p><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
+          <p><strong>Review</strong> recipes and keep track of hits and misses.</p>
+          <p>Check out the <strong>Share</strong> page to see what others are making!</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
@@ -73,7 +73,7 @@ export default function Home() {
               </div>
             </CardBody>
           </Card>
-          <Button style={{ margin: '10px' }} onClick={setRandom}>Refresh</Button>
+          <Button style={{ margin: '10px', width: '200px' }} onClick={setRandom}>Refresh</Button>
         </div>
 
       </div>
