@@ -36,8 +36,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="row" style={{ justifyItems: 'space-evenly', justifyContent: 'space-evenly' }}>
-      <div style={{ display: 'flex', marginTop: '20px' }}>
+    <div className="column">
+      <div style={{
+        display: 'flex', marginTop: '20px', justifyItems: 'space-evenly', justifyContent: 'space-evenly',
+      }}
+      >
         <div style={{ width: '30%', display: 'flex', flexDirection: 'column' }}>
           <h1 className="shrikhand">Hello, {user.firstName}</h1>
           <div style={{ marginTop: '40px' }}>

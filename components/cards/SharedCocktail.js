@@ -2,13 +2,19 @@ import {
   Button, Card, CardBody, Image,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { addPublicToSaved } from '../../api/SavedCocktailsApi';
 import { useAuth } from '../../utils/context/authContext';
+import { getSingleUser } from '../../api/UsersApi';
 
 export default function SharedCocktail({ savedCocktail, onUpdate }) {
   const { user } = useAuth();
   const [added, setAdded] = useState(false);
+  const [reviewer, setReviewer] = useState({});
+
+  const getCocktailReviewer = () => {
+    getSingleUser(savedCocktail.userId).then(setReviewer);
+  };
 
   const addCocktail = () => {
     addPublicToSaved(savedCocktail.id, user.id).then(() => {
@@ -17,6 +23,10 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
     });
   };
 
+  useEffect(() => {
+    getCocktailReviewer();
+  });
+
   return (
     <Card style={{ margin: '20px' }}>
       <CardBody style={{
@@ -24,7 +34,7 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
       }}
       >
         <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
-        <div className="column">
+        <div className="column" style={{ margin: '0 10px 0 10px' }}>
           <h1 className="title">{savedCocktail.name}</h1>
           <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
           {savedCocktail.cocktailIngredients?.map((ci) => (
@@ -33,17 +43,21 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
           <p>{savedCocktail?.instructions}</p>
         </div>
         <div className="column">
+          <p>Shared by: <strong>{reviewer.username}</strong></p>
           <p><strong>Grade:</strong> {savedCocktail.grade}</p>
           <p><strong>Notes:</strong> {savedCocktail.notes}</p>
-          {added ? (
+          {user.id !== reviewer.id && added && (
             <div className="corner">
               <Button>Added</Button>
             </div>
-          ) : (
-            <div className="corner">
-              <Button onClick={addCocktail}>Add to my saved</Button>
-            </div>
           )}
+
+          {user.id !== reviewer.id && (
+          <div className="corner">
+            <Button onClick={addCocktail}>Add to my saved</Button>
+          </div>
+          )}
+
         </div>
       </CardBody>
     </Card>
