@@ -27,7 +27,7 @@ export default function UserCard({ user }) {
     <>
       <Card style={{ width: '15rem' }}>
         <CardBody className="column">
-          <CardImg src={user?.imageUrl} />
+          <CardImg src={user?.imageUrl} style={{ marginBottom: '10px' }} />
           <h2 className="title">{user?.username}</h2>
           <p>{user?.firstName} {user?.lastName}</p>
           <p>{user?.email}</p>

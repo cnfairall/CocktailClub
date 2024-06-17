@@ -41,17 +41,22 @@ export default function Home() {
         display: 'flex', marginTop: '20px', justifyItems: 'space-evenly', justifyContent: 'space-evenly',
       }}
       >
-        <div style={{ width: '30%', display: 'flex', flexDirection: 'column' }}>
-          <h1 className="shrikhand">Hello, {user.firstName}</h1>
-          <div style={{ marginTop: '40px' }}>
+        <div style={{
+          width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        }}
+        >
+          <Image src="/images/party.png" alt="cocktail party" />
+          <h1 className="title">Hello, {user.firstName}</h1>
+          <div>
             <p><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
             <p><strong>Review</strong> recipes and keep track of hits and misses.</p>
             <p>Check out the <strong>Share</strong> page to see what others are making!</p>
           </div>
+          <a href="https://storyset.com/people">People illustration by Storyset</a>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <p className="shrikhand">Random Cocktail</p>
+            <p className="shrikhand">Why not try</p>
           </div>
           <Card style={{ width: '30rem' }}>
             <CardBody style={{ display: 'flex', flexDirection: 'column' }}>

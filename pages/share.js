@@ -34,7 +34,7 @@ function Share() {
         <UserCard user={appUser} updateUser={updateUser} />
       </div>
       <div className="column">
-        <h1 style={{ marginLeft: '10px' }} className="shrikhand">What's the buzz</h1>
+        <h1 style={{ marginLeft: '15px' }} className="title">The buzz is</h1>
         {publicCocktails.map((cocktail) => (
           <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} />
         ))}
