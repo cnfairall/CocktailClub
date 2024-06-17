@@ -62,7 +62,7 @@ export default function Home() {
           <a className="smfont" href="https://storyset.com/people">People illustration by Storyset</a>
         </div>
         <div className="yellow flex-wrap d-flex flex-column justify-content-end align-content-center">
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
             <p className="shrikhand">Why not try</p>
           </div>
           <Card style={{ width: '30rem' }}>
