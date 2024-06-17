@@ -48,11 +48,11 @@ function ReviewForm({ savedCocktail }) {
   };
 
   return (
-    <div className="center">
+    <div className="column center">
       <h1 className="shrikhand">Review {savedCocktail.name}</h1>
       <Form style={{ width: '60%' }} onSubmit={handleSubmit}>
         <Form.Group className="mt-3 mb-3">
-          <Form.Label className="shrikhand">Grade</Form.Label>
+          <Form.Label className="caprasimo">Grade</Form.Label>
           <Form.Control
             type="text"
             placeholder="ex. A-"
@@ -62,7 +62,7 @@ function ReviewForm({ savedCocktail }) {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label className="shrikhand">Notes</Form.Label>
+          <Form.Label className="caprasimo">Notes</Form.Label>
           <Form.Control
             as="textarea"
             type="text"
