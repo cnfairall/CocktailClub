@@ -62,8 +62,10 @@ export default function Search() {
   };
 
   return (
-    <>
-      <h1 className="title">Find a new cocktail</h1>
+    <div>
+      <div className="d-flex justify-content-center">
+        <h1 className="title">Find a new cocktail</h1>
+      </div>
       <div className="search">
         <SearchBar onSearch={getName} />
         <Form>
@@ -116,6 +118,6 @@ export default function Search() {
           results?.map((cocktail) => (<Cocktail cocktail={cocktail} key={cocktail.idDrink} />))
         )}
       </div>
-    </>
+    </div>
   );
 }

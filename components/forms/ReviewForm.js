@@ -41,15 +41,15 @@ function ReviewForm({ savedCocktail }) {
         made: true,
         savedCocktailId: savedCocktail.id,
       };
-      reviewCocktail(payload).then(router.push(`/savedcocktails/${savedCocktail.id}`));
+      reviewCocktail(payload).then(router.push('/saved'));
     } else {
-      reviewCocktail(formData).then(router.push(`/savedcocktails/${savedCocktail.id}`));
+      reviewCocktail(formData).then(router.push('/saved'));
     }
   };
 
   return (
-    <div className="column center">
-      <h1 className="shrikhand">Review {savedCocktail.name}</h1>
+    <div className="flex-wrap d-flex flex-column justify-content-center align-content-center">
+      <h1 className="title mb-5">Review {savedCocktail.name}</h1>
       <Form style={{ width: '60%' }} onSubmit={handleSubmit}>
         <Form.Group className="mt-3 mb-3">
           <Form.Label className="caprasimo">Grade</Form.Label>
@@ -72,9 +72,11 @@ function ReviewForm({ savedCocktail }) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Save review
-        </Button>
+        <div className="d-flex justify-content-center mt-5">
+          <Button variant="primary" type="submit">
+            Save review
+          </Button>
+        </div>
       </Form>
     </div>
   );

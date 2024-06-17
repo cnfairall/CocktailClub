@@ -32,7 +32,7 @@ a {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  --bs-navbar-active-color: rgb(11, 92, 43)
+  --bs-navbar-active-color: rgb(11, 92, 43)!important;
 }
 
 .nav-link {
@@ -172,4 +172,55 @@ border-radius: 8px;
 .column {
   display: flex;
   flex-direction: column;
+}
+
+#shaker {
+  width: 400px
+}
+
+#bartender {
+  width: 400px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.smfont {
+  font-size: 13px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#refresh {
+  margin: 10px;
+
+}
+
+.yellow {
+  background-color: #acb420;
+  padding: 30px;
+  border-radius: 10px;
+  position: absolute;
+  right: 80px;
+}
+
+#start {
+  color: rgb(11, 92, 43);
+  font-size: 25px;
+}
+
+.shape {
+  display: flex;
+  border: 1px solid rgb(11, 92, 43);
+  border-radius: 15px;
+  justify-content: center;
+  align-content: center;
+  padding: 25px;
+
+}
+
+.smtitle {
+  font-size: 25px;
+  font-family: Caprasimo;
 }

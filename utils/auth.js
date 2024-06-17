@@ -44,7 +44,7 @@ const signOut = () => {
 };
 
 export {
-  signIn, //
+  signIn,
   signOut,
   checkUser,
   registerUser,

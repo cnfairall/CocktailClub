@@ -20,11 +20,17 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
   };
 
   const removeCocktail = () => {
-    unsaveCocktail(savedCocktail.id).then(router.push('/saved'));
+    unsaveCocktail(savedCocktail.id).then(() => {
+      onUpdate();
+      router.push('/saved');
+    });
   };
 
   const shareACocktail = () => {
-    shareCocktail(savedCocktail.id).then(onUpdate());
+    shareCocktail(savedCocktail.id).then(() => {
+      onUpdate();
+      router.push('/share');
+    });
   };
 
   return (
@@ -48,18 +54,22 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
           <CardBody style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex' }}>
               <Image rounded className="lgPic" src={savedCocktail.imageUrl} />
-              <div>
-                <div className="title">{savedCocktail.name}</div>
-                <p><strong>{savedCocktail.glass?.name}</strong></p>
-                {savedCocktail.cocktailIngredients?.map((ci) => (
-                  <p>{ci.amount} {ci.ingredient?.name}</p>
-                ))}
-                <p>{savedCocktail?.instructions}</p>
+              <div className="d-flex flex-column justify-content-between">
+                <div>
+                  <div className="title">{savedCocktail.name}</div>
+                  <div><strong>{savedCocktail.glass?.name}</strong></div>
+                </div>
+                <div style={{ marginLeft: '10px' }}>
+                  {savedCocktail.cocktailIngredients?.map((ci) => (
+                    <div>{ci.amount} {ci.ingredient?.name}</div>
+                  ))}
+                </div>
+                <div>{savedCocktail?.instructions}</div>
               </div>
             </div>
 
               {savedCocktail?.made === true ? (
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div><strong>Grade:</strong> {savedCocktail.grade}</div>
                     <div><strong>Notes:</strong> {savedCocktail.notes}</div>
@@ -79,7 +89,10 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
                   </div>
                 </div>
               ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <div style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop: '10px',
+                }}
+                >
                   <Button style={{ marginBottom: '10px' }} onClick={handleShow}>Unsave</Button>
                   <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
                     <Button>Review</Button>
