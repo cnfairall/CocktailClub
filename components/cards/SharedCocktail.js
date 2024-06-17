@@ -26,37 +26,35 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
   useEffect(() => {
     getCocktailReviewer();
   });
-
   return (
-    <Card style={{ margin: '20px' }}>
-      <CardBody style={{
-        display: 'flex', flex: '0 1 30%',
-      }}
-      >
-        <Image rounded style={{ width: '200px' }} src={savedCocktail.imageUrl} />
-        <div className="column" style={{ margin: '0 10px 0 10px' }}>
-          <h1 className="title">{savedCocktail.name}</h1>
+    <Card style={{ margin: '10px 0 10px 20px' }}>
+      <CardBody className="d-flex justify-content-between">
+        <Image rounded style={{ height: '200px' }} src={savedCocktail.imageUrl} />
+        <div className="d-flex flex-column align-content-between" style={{ margin: '0 10px 0 10px', maxWidth: '50%' }}>
+          <h1 className="smtitle">{savedCocktail.name}</h1>
           <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
-          {savedCocktail.cocktailIngredients?.map((ci) => (
-            <p>{ci.amount} {ci.ingredient?.name}</p>
-          ))}
-          <p>{savedCocktail?.instructions}</p>
-        </div>
-        <div className="column">
-          <p>Shared by: <strong>{reviewer.username}</strong></p>
-          <p><strong>Grade:</strong> {savedCocktail.grade}</p>
-          <p><strong>Notes:</strong> {savedCocktail.notes}</p>
-          {user.id !== reviewer.id && added && (
-            <div className="corner">
-              <Button>Added</Button>
-            </div>
-          )}
-
-          {user.id !== reviewer.id && (
-          <div className="corner">
-            <Button onClick={addCocktail}>Add to my saved</Button>
+          <div className="mb-3">
+            {savedCocktail.cocktailIngredients?.map((ci) => (
+              <div key={ci.id}>{ci.amount} <strong>{ci.ingredient?.name}</strong></div>
+            ))}
           </div>
-          )}
+          <div>{savedCocktail?.instructions}</div>
+        </div>
+        <div className="d-flex flex-column justify-content-between">
+          <div>
+            <p>Shared by: <strong>{reviewer.username}</strong></p>
+            <p><strong>Grade:</strong> {savedCocktail.grade}</p>
+            <p><strong>Notes:</strong> {savedCocktail.notes}</p>
+          </div>
+
+          {added || reviewer.id === user.id ? (
+            ''
+          )
+            : (
+              <div className="corner">
+                <Button onClick={addCocktail}>Add to my saved</Button>
+              </div>
+            )}
 
         </div>
       </CardBody>
@@ -67,6 +65,7 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
 SharedCocktail.propTypes = {
   savedCocktail: PropTypes.shape({
     id: PropTypes.number,
+    drinkId: PropTypes.number,
     userId: PropTypes.number,
     name: PropTypes.string,
     glass: PropTypes.string,

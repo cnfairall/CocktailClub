@@ -34,9 +34,11 @@ function Share() {
         <UserCard user={appUser} updateUser={updateUser} />
       </div>
       <div className="column">
-        <h1 style={{ marginLeft: '15px' }} className="title">The buzz is</h1>
+        <div className="d-flex justify-content-center">
+          <h1 className="title mb-4">What other users are trying now</h1>
+        </div>
         {publicCocktails.map((cocktail) => (
-          <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} />
+          <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} key={cocktail.id} />
         ))}
       </div>
     </div>
