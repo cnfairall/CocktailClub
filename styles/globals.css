@@ -44,7 +44,7 @@ a {
 }
 
 .nav-link.active {
-  color: rgb(11, 92, 43);
+  color: rgb(11, 92, 43)!important;
 }
     
 body { 
@@ -212,7 +212,7 @@ border-radius: 8px;
 
 .shape {
   display: flex;
-  border: 1px solid rgb(11, 92, 43);
+  border: 1px solid rgb(11, 92, 43)!important;
   border-radius: 15px;
   justify-content: center;
   align-content: center;
@@ -223,5 +223,9 @@ border-radius: 8px;
 .smtitle {
   font-size: 25px;
   font-family: Caprasimo;
-  font-weight: bold;
+}
+
+.outline {
+  color: transparent!important;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black!important;
 }
