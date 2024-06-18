@@ -35,7 +35,7 @@ function Share() {
       </div>
       <div className="column">
         <div className="d-flex justify-content-center">
-          <h1 className="outline title m-5">What other users are trying now</h1>
+          <h1 className="outline title m-3">What other users are trying now</h1>
         </div>
         {publicCocktails.map((cocktail) => (
           <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} key={cocktail.id} />
