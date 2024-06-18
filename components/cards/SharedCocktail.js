@@ -18,7 +18,7 @@ export default function SharedCocktail({ savedCocktail }) {
 
   useEffect(() => {
     getCocktailReviewer();
-  }, []);
+  }, [savedCocktail]);
 
   return (
     <Card style={{ margin: '10px 0 10px 20px' }}>
