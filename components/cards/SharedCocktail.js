@@ -25,7 +25,8 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
 
   useEffect(() => {
     getCocktailReviewer();
-  });
+  }, []);
+
   return (
     <Card style={{ margin: '10px 0 10px 20px' }}>
       <CardBody className="d-flex justify-content-between">
