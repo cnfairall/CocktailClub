@@ -26,7 +26,6 @@ export default function SharedCocktail({ savedCocktail }) {
         <Image rounded style={{ height: '200px' }} src={savedCocktail.imageUrl} />
         <div className="d-flex flex-column align-content-between" style={{ margin: '0 10px 0 10px', maxWidth: '50%' }}>
           <h1 className="smtitle">{savedCocktail.name}</h1>
-          <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
           <div className="mb-3">
             {savedCocktail.cocktailIngredients?.map((ci) => (
               <div key={ci.id}><strong>{ci.ingredient?.name}</strong></div>
