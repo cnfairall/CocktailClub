@@ -64,7 +64,7 @@ export default function Search() {
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <h1 className="title">Find a new cocktail</h1>
+        <h1 className="bi title">Find a new cocktail</h1>
       </div>
       <div className="search">
         <SearchBar onSearch={getName} />
