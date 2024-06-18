@@ -211,12 +211,13 @@ border-radius: 8px;
 }
 
 .shape {
-  display: flex;
+  display: flex!important;
   border: 1px solid rgb(11, 92, 43)!important;
-  border-radius: 15px;
-  justify-content: center;
-  align-content: center;
-  padding: 25px;
+  border-radius: 15px!important;
+  justify-content: center!important;
+  align-content: center!important;
+  padding: 25px!important;
+  margin: 0!important;
 
 }
 
@@ -226,6 +227,6 @@ border-radius: 8px;
 }
 
 .outline {
-  color: transparent!important;
+  color: rgb(247, 247, 241)!important;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black!important;
 }
