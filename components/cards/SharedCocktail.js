@@ -1,26 +1,19 @@
 import {
-  Button, Card, CardBody, Image,
+  Card, CardBody, Image,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { addPublicToSaved } from '../../api/SavedCocktailsApi';
-import { useAuth } from '../../utils/context/authContext';
+// import { useAuth } from '../../utils/context/authContext';
+import Link from 'next/link';
 import { getSingleUser } from '../../api/UsersApi';
 
-export default function SharedCocktail({ savedCocktail, onUpdate }) {
-  const { user } = useAuth();
-  const [added, setAdded] = useState(false);
+export default function SharedCocktail({ savedCocktail }) {
+  // const { user } = useAuth();
+  // const [added, setAdded] = useState(false);
   const [reviewer, setReviewer] = useState({});
 
   const getCocktailReviewer = () => {
     getSingleUser(savedCocktail.userId).then(setReviewer);
-  };
-
-  const addCocktail = () => {
-    addPublicToSaved(savedCocktail.id, user.id).then(() => {
-      setAdded(true);
-      onUpdate();
-    });
   };
 
   useEffect(() => {
@@ -36,10 +29,9 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
           <p><strong>Glass:</strong> {savedCocktail.glass?.name}</p>
           <div className="mb-3">
             {savedCocktail.cocktailIngredients?.map((ci) => (
-              <div key={ci.id}>{ci.amount} <strong>{ci.ingredient?.name}</strong></div>
+              <div key={ci.id}><strong>{ci.ingredient?.name}</strong></div>
             ))}
           </div>
-          <div>{savedCocktail?.instructions}</div>
         </div>
         <div className="d-flex flex-column justify-content-between">
           <div>
@@ -47,15 +39,11 @@ export default function SharedCocktail({ savedCocktail, onUpdate }) {
             <p><strong>Grade:</strong> {savedCocktail.grade}</p>
             <p><strong>Notes:</strong> {savedCocktail.notes}</p>
           </div>
-
-          {added || reviewer.id === user.id ? (
-            ''
-          )
-            : (
-              <div className="corner">
-                <Button onClick={addCocktail}>Add to my saved</Button>
-              </div>
-            )}
+          <div className="corner">
+            <Link passHref href={`/cocktails/${savedCocktail.drinkId}`}>
+              <i className="fs-2 bi bi-eye-fill" />
+            </Link>
+          </div>
 
         </div>
       </CardBody>
@@ -78,5 +66,4 @@ SharedCocktail.propTypes = {
     made: PropTypes.bool,
     public: PropTypes.bool,
   }).isRequired,
-  onUpdate: PropTypes.func.isRequired,
 };

@@ -61,7 +61,7 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
                 </div>
                 <div style={{ marginLeft: '10px' }}>
                   {savedCocktail.cocktailIngredients?.map((ci) => (
-                    <div>{ci.amount} {ci.ingredient?.name}</div>
+                    <div>{ci.amount} <strong>{ci.ingredient?.name}</strong></div>
                   ))}
                 </div>
                 <div>{savedCocktail?.instructions}</div>
