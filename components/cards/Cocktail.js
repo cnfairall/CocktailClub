@@ -32,7 +32,7 @@ export default function Cocktail({ cocktail }) {
 
   useEffect(() => {
     getUsersCocktails();
-  }, [added]);
+  }, [cocktail]);
 
   return (
     <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
