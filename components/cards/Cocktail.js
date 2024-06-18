@@ -38,7 +38,7 @@ export default function Cocktail({ cocktail }) {
     <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
       {router.pathname === '/search' ? (
 
-        <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <CardBody className="d-flex flex-column">
           <p className="title">{cocktail?.strDrink}</p>
           <Image rounded className="smPic" src={cocktail?.strDrinkThumb} />
           <div className="corner">
