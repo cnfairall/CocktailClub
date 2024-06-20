@@ -1,44 +1,41 @@
-# React/Next.js Django Auth Template
+## Cocktail Club 🍹💃  [![Netlify Status](https://api.netlify.com/api/v1/badges/2a58d38a-2188-42a9-b4b2-9b5d79ba2176/deploy-status)](https://app.netlify.com/sites/cocktailclubapp/deploys)
 
-## Topics
-- [Get Started](#getting-started)
-- [Starting the Project](#starting-the-project)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+Craft cocktails are everywhere but sometimes the best bar is your own home. Cocktail Club offers home mixologists a central source to discover, save, review, and share cocktail recipes as they explore the world of cocktails.
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+[View App](https://cocktailclubapp.netlify.app/)
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## About the User
+- You want to build a repertoire of cocktails you can impress your guests with or wind down after a hectic week
+- You've been experimenting a little but can't remember what you've tried, what you liked, or how to make it
+- Cocktail Club is a great way to keep track of drink ideas and your hits and misses
+  
+## Features
+- Cocktail Club is user-specific, utilizing Firebase authentication. Unless shared, user-generated data is only viewable when signed in
+- Search from Cocktails.Db's database of cocktail recipes by name, spirit, or glass
+- Find a random cocktail on the home page
+- Save cocktails you want to try
+- View your saved cocktails by whether they're made or unmade
+- View a cocktail recipe to help you make a drink, then review the recipe
+- Share your reviewed recipes to the feed
+- View recipes shared by other users and save them
+- Look back on what you've made 
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+## Video Walkthrough of Cocktail Club
+https://www.loom.com/share/a0c91e8c9cef4cd99a0ed51d8b1bbfaf?sid=8bc4e535-add8-43b9-b5ae-32fcc4062e2f
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+## Relevant Links
+- [Check out the deployed site](https://cocktailclubapp.netlify.app/)
+- [Wireframes](https://www.figma.com/design/shKc0l4bgrmPby7eJP5viU/cocktail?node-id=0-1&t=2OsRcR6hhHIgWc2Q-1)
+- [Project Board](https://github.com/users/cnfairall/projects/9)
+
+## Project Screenshots
+<img width="1148" alt="home page" src="/public/assets/generator.png">
+<img width="1148" alt="outfits page" src="/public/assets/outfits.png">
+<img width="1148" alt="add piece form" src="/public/assets/add.png">
+<img width="1148" alt="pieces page" src="/public/assets/pieces.png">
+<img width="1148" alt="piece details" src="/public/assets/view.png">
+<img width="1148" alt="edit piece form" src="/public/assets/edit.png">
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
-
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributors
+- [Courtney Fairall](https://github.com/cnfairall)
