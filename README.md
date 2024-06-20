@@ -29,12 +29,11 @@ https://www.loom.com/share/a0c91e8c9cef4cd99a0ed51d8b1bbfaf?sid=8bc4e535-add8-43
 - [Project Board](https://github.com/users/cnfairall/projects/9)
 
 ## Project Screenshots
-<img width="1148" alt="home page" src="/public/assets/generator.png">
-<img width="1148" alt="outfits page" src="/public/assets/outfits.png">
-<img width="1148" alt="add piece form" src="/public/assets/add.png">
-<img width="1148" alt="pieces page" src="/public/assets/pieces.png">
-<img width="1148" alt="piece details" src="/public/assets/view.png">
-<img width="1148" alt="edit piece form" src="/public/assets/edit.png">
+<img width="1148" alt="home page" src="/public/images/home.png">
+<img width="1148" alt="search page" src="/public/images/search.png">
+<img width="1148" alt="saved page" src="/public/assets/saved.png">
+<img width="1148" alt="detail page" src="/public/assets/detail.png">
+<img width="1148" alt="share page" src="/public/assets/share.png">
 
 
 ## Contributors
