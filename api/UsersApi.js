@@ -1,6 +1,6 @@
 // import { clientCredentials } from '../utils/client';
 
-const endpoint = "cocktailclub.app";
+const endpoint = "https://cocktailclub.app";
 
 const getSingleUser = (id) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/api/users/${id}`, {

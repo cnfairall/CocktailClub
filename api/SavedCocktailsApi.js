@@ -1,6 +1,6 @@
 // import { clientCredentials } from '../utils/client';
 
-const endpoint = "cocktailclub.app";
+const endpoint = "https://cocktailclub.app";
 
 const saveCocktail = (payload, userId) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/api/savedcocktails/${userId}/save`, {
