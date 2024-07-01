@@ -1,6 +1,6 @@
-import { clientCredentials } from '../utils/client';
+// import { clientCredentials } from '../utils/client';
 
-const endpoint = clientCredentials.databaseURL;
+const endpoint = "cocktailclub.app";
 
 const getSpirits = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/api/spirits`, {
