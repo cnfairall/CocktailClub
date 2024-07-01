@@ -1,9 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { clientCredentials } from './client';
+// import { clientCredentials } from './client';
 
 const checkUser = (uid) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/api/checkuser`, {
+  fetch("cocktailclub.app/api/checkuser", {
     method: 'POST',
     body: JSON.stringify({ uid }),
     headers: {
@@ -22,7 +22,7 @@ const checkUser = (uid) => new Promise((resolve, reject) => {
 });
 
 const registerUser = (userInfo) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/api/register`, {
+  fetch("cocktailclub.app/api/register", {
     method: 'POST',
     body: JSON.stringify(userInfo),
     headers: {
