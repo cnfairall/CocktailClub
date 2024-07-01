@@ -3,7 +3,7 @@ import 'firebase/auth';
 // import { clientCredentials } from './client';
 
 const checkUser = (uid) => new Promise((resolve, reject) => {
-  fetch("cocktailclub.app/api/checkuser", {
+  fetch("https://cocktailclub.app/api/checkuser", {
     method: 'POST',
     body: JSON.stringify({ uid }),
     headers: {
@@ -22,7 +22,7 @@ const checkUser = (uid) => new Promise((resolve, reject) => {
 });
 
 const registerUser = (userInfo) => new Promise((resolve, reject) => {
-  fetch("cocktailclub.app/api/register", {
+  fetch("https://cocktailclub.app/api/register", {
     method: 'POST',
     body: JSON.stringify(userInfo),
     headers: {
