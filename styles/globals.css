@@ -56,6 +56,53 @@ body {
   width: 300px;
 }
 
+.home-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.middle-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-end;
+  align-content: center;
+  background-color: #acb420;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.random-title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top-half {
+  display: flex;
+  justify-content: space-between;
+}
+
+#bartender {
+  width: 100%;
+}
+
 .measures {
   display: flex;
   flex-direction: row;
@@ -64,6 +111,11 @@ body {
 
 .amounts {
   margin-right: 15px;
+}
+
+.instructions {
+  margin: 10px 0;
+  font-size: 14px;
 }
 
 .search {
@@ -114,9 +166,10 @@ border-radius: 8px;
   flex-wrap: wrap;
 }
 
-.caprasimo
+.name
 {
   font-family: Caprasimo;
+  font-size: 25px;
 }
 
 .nav {
@@ -178,11 +231,7 @@ border-radius: 8px;
   width: 400px
 }
 
-#bartender {
-  width: 400px;
-  margin-bottom: 20px;
-  margin-right: 10px;
-}
+
 
 .smfont {
   font-size: 13px;
@@ -214,7 +263,6 @@ border-radius: 8px;
   display: flex!important;
   border: 1px solid rgb(11, 92, 43)!important;
   border-radius: 15px!important;
-  justify-content: center!important;
   align-content: center!important;
   padding: 25px!important;
   margin: 0!important;
