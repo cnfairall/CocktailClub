@@ -10,6 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.container {
+  display: flex;
+
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -53,13 +58,14 @@ body {
 }
 
 #logo {
-  width: 300px;
+  /* width: 300px; */
 }
 
 .home-content {
   display: flex;
   flex-direction: row;
-  gap: 1.5em;
+  gap: 3em;
+
 }
 
 .left-content {
@@ -85,8 +91,12 @@ body {
   justify-content: flex-end;
   align-content: center;
   background-color: #acb420;
-  padding: 30px;
+  padding: 15px;
   border-radius: 10px;
+}
+
+.left-middle {
+  display: flex;
 }
 
 .random-title {
@@ -96,6 +106,7 @@ body {
 
 .top-half {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -106,11 +117,19 @@ body {
 .measures {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  justify-content: left;
 }
 
 .amounts {
-  margin-right: 15px;
+  margin-right: 10px;
+
+}
+
+.no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  width: fit-content
 }
 
 .instructions {
@@ -208,7 +227,7 @@ border-radius: 8px;
 
 .smPic {
   height: 200px;
-  margin-right: 10px
+  margin: 8px 10px 0 0;
 }
 
 .lgPic {
@@ -282,4 +301,57 @@ border-radius: 8px;
 .added {
   color:rgb(11, 92, 43);
   font-weight: bold;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    max-width: 720px;
+    padding: 0 1em
+  }
+
+  #nav{
+    height: fit-content
+  }
+
+  #logo {
+    height: 50px
+  }
+
+  #sign-out {
+    margin: 20px;
+    width: fit-content;
+  }
+
+  .home-content {
+    flex-direction: column;
+  }
+
+  .left-content {
+    /* flex: 1 0 30% */
+  }
+
+  .middle-content {
+    /* flex: 1 0 30% */
+  }
+
+  .right-content {
+    width: fit-content;
+    margin: 0 6rem 10rem 
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .measures {
+    padding: 8px;
+  }
+
+  .shape {
+    position: absolute;
+    bottom: -500px;
+    left: 35%
+  }
+
 }

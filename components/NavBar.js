@@ -12,8 +12,8 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar id="nav" collapseOnSelect expand="lg" variant="dark">
-      <Container>
+    <Navbar id="nav" collapseOnSelect expand="lg" variant="light">
+      <Container id="nav-box">
         <Link passHref href="/">
           <Image id="logo" src="/images/ccblack.png" />
         </Link>
