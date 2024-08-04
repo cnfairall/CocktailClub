@@ -44,7 +44,7 @@ export default function Home() {
           <div className="left-content">
             <h1 className="title bi">Hello, {user.firstName}</h1>
             <Image id="bartender" src="/images/bartender.png" alt="person shaking cocktail" />
-            <a className="smfont" href="https://storyset.com/people">People illustration by Storyset</a>
+            <a className="credit smfont" href="https://storyset.com/people">People illustration by Storyset</a>
           </div>
           <div className="middle-content">
             <div>
@@ -66,7 +66,9 @@ export default function Home() {
           <Card>
             <CardBody className="random-card">
               <div className="top">
-                <Image rounded className="smPic" src={randomCocktail[0]?.strDrinkThumb} />
+                <div className="pic">
+                  <Image rounded className="smPic" src={randomCocktail[0]?.strDrinkThumb} />
+                </div>
                 <div className="top-half">
                   <div>
                     <div>

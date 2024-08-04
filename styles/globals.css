@@ -121,15 +121,20 @@ body {
   justify-content: left;
 }
 
+.ingredients {
+  flex: 2;
+}
+
 .amounts {
   margin-right: 10px;
+  flex: 1;
 
 }
 
 .no-wrap {
   display: flex;
   flex-wrap: nowrap;
-  width: fit-content
+  width: fit-content;
 }
 
 .instructions {
@@ -326,17 +331,10 @@ border-radius: 8px;
     flex-direction: column;
   }
 
-  .left-content {
-    /* flex: 1 0 30% */
-  }
-
-  .middle-content {
-    /* flex: 1 0 30% */
-  }
 
   .right-content {
     width: fit-content;
-    margin: 0 6rem 10rem 
+    margin: 0 3rem 10rem 
   }
 
   .top {
@@ -354,4 +352,91 @@ border-radius: 8px;
     left: 35%
   }
 
+}
+
+@media screen and (max-width: 420px) {
+  /* #bartender {
+    width: 200px
+  } */
+
+  #nav {
+    margin: 10px;
+    padding: 0
+  }
+
+  .container {
+    padding: 0 10px
+  }
+
+  .credit {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .title {
+    font-size: 20px
+  }
+
+  .home-content {
+    max-width: 420px;
+    justify-content: center;
+  }
+
+  .left-content {
+    width: fit-content;
+    flex: 1
+  }
+
+  .middle-content {
+    flex: 1;
+    padding-right: 10px
+  }
+
+  .right-content {
+    margin: 0
+  }
+
+  .smPic {
+    height: 150px
+  }
+
+  .pic {
+    flex: 1;
+  }
+
+  .top-half {
+    flex: 2
+  }
+
+  p {
+    font-size: 13px;
+    margin: 0 8px 8px 0;
+  }
+
+  .random-card {
+    padding: 8px
+  }
+
+  .instructions {
+    font-size: 12px;
+    margin: 4px 0 4px 0
+  }
+
+  .shape {
+    bottom: -4em;
+    left: 25%;
+    padding: 10px
+  }
+
+  .shrikhand {
+    font-size: 20px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .smfont {
+    font-size: 10px;
+  }
 }
