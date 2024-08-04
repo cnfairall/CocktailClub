@@ -67,7 +67,7 @@ export default function Home() {
             <CardBody className="random-card">
               <div className="top">
                 <div className="pic">
-                  <Image rounded className="smPic" src={randomCocktail[0]?.strDrinkThumb} />
+                  <Image rounded className="random-pic" src={randomCocktail[0]?.strDrinkThumb} />
                 </div>
                 <div className="top-half">
                   <div>

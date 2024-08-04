@@ -38,9 +38,9 @@ export default function Cocktail({ cocktail }) {
     <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
       {router.pathname === '/search' ? (
 
-        <CardBody className="d-flex flex-column justify-content-between">
-          <div>
-            <p className="title">{cocktail?.strDrink}</p>
+        <CardBody>
+          <div className="name-pic">
+            <p className="name">{cocktail?.strDrink}</p>
             <Image rounded className="smPic" src={cocktail?.strDrinkThumb} />
           </div>
           <div className="corner">
@@ -52,29 +52,35 @@ export default function Cocktail({ cocktail }) {
 
       ) : (
         <>
-          <CardBody style={{ display: 'flex' }}>
-            <Image rounded className="lgPic" src={cocktail[0]?.strDrinkThumb} />
-            <div className="info">
+          <CardBody className="detail-card">
+            <div className="top-row">
+
               <div>
-                <p className="title">{cocktail[0]?.strDrink}</p>
-                <p><strong>{cocktail[0]?.strGlass}</strong></p>
+                <Image rounded className="lgPic" src={cocktail[0]?.strDrinkThumb} />
               </div>
-              <div className="measures">
-                <div className="amounts">
-                  {cocktail.amounts?.map((item) => <div key={item.idDrink}>{item}</div>)}
+              <div className="info">
+                <div>
+                  <div className="title">{cocktail[0]?.strDrink}</div>
+                  <p>{cocktail[0]?.strGlass}</p>
                 </div>
-                <div className="ingredients">
-                  {cocktail.ingredients?.map((item) => <div key={item.idDrink}><strong>{item}</strong></div>)}
+                <div className="measures smfont">
+                  <div className="amounts">
+                    {cocktail.amounts?.map((item) => <div className="no-wrap" key={item.idDrink}>{item}</div>)}
+                  </div>
+                  <div className="ingredients">
+                    {cocktail.ingredients?.map((item) => <div className="no-wrap" key={item.idDrink}><strong>{item}</strong></div>)}
+                  </div>
                 </div>
               </div>
-              <div>{cocktail[0]?.strInstructions}</div>
-              <div className="corner">
-                {added ? (
-                  <p className="added">Added</p>
-                ) : (
-                  <Button onClick={saveThisCocktail}>Save Cocktail</Button>
-                )}
-              </div>
+            </div>
+
+            <div className="instructions">{cocktail[0]?.strInstructions}</div>
+            <div className="corner">
+              {added ? (
+                <p className="added">Added</p>
+              ) : (
+                <Button onClick={saveThisCocktail}>Save</Button>
+              )}
             </div>
           </CardBody>
         </>
