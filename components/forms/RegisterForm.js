@@ -56,7 +56,7 @@ function RegisterForm({ user, updateUser }) {
   return (
     <div className="flex-wrap d-flex flex-column justify-content-center align-content-center">
       <div className="title">Tell us a bit about yourself</div>
-      <div>
+      <div className="register-form">
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="bold">First Name</Form.Label>

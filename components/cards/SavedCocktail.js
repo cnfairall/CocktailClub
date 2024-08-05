@@ -38,14 +38,19 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
       <Card className={router.pathname.includes('/savedcocktails') ? 'lgCard' : 'smCard'}>
 
         {router.pathname === '/saved' && (
-          <CardBody>
-            <Image rounded className="smPic" src={savedCocktail.imageUrl} />
-            <div className="name">{savedCocktail.name}</div>
-
-            <div className="corner">
-              <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
-                <i className="fs-2 bi bi-eye-fill" />
-              </Link>
+          <CardBody className="drink-body">
+            <div>
+              <div className="d-flex justify-content-center">
+                <Image rounded className="smPic" src={savedCocktail.imageUrl} />
+              </div>
+              <div className="name">{savedCocktail.name}</div>
+            </div>
+            <div className="end">
+              <div className="corner">
+                <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
+                  <i className="fs-2 bi bi-eye-fill" />
+                </Link>
+              </div>
             </div>
           </CardBody>
         )}

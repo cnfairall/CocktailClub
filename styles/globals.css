@@ -32,6 +32,7 @@ a {
 .navbar-nav {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   --bs-navbar-active-color: rgb(11, 92, 43)!important;
 }
@@ -161,16 +162,73 @@ body {
   text-align: center;
 }
 
+.user-card {
+  width: fit-content
+}
+
+.user-pic {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.share-page {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1em
+}
+
+.user-column {
+  flex: 1
+}
+
+.post-column {
+  flex: 4;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1em
+}
+
+.shared-card {
+  display: flex;
+}
+
+.shared-body {
+  display: flex;
+  gap: 1em
+}
+
+.shared-ingredients {
+font-size: 14px;
+}
+
+.shared-middle {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+.shared-end {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
 .btn {
   background-color: rgb(11, 92, 43)!important;
   border: 1px solid black!important;
   color: white!important;
   --bs-btn-hover-bg: #acb420!important;
   --bs-btn-hover-border-color: #acb420!important;
+  margin-bottom: 10px
 }
 
 #sign-out {
-  margin-left: 50px;
+  margin: 0 0 0 50px;
 }
 
 .card {
@@ -182,6 +240,10 @@ border-radius: 8px;
 .detail-card {
   display: flex;
   flex-direction: column;
+}
+
+.drink-card {
+  justify-content: space-between ;
 }
 
 .info {
@@ -240,16 +302,33 @@ border-radius: 8px;
 
 .corner {
   display: flex;
+  align-content: flex-end;
+}
+
+.end {
+  display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .bi {
   color: #acb420!important;
 }
 
+.drink-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
 .smCard {
   margin: 20px;
   flex: 0 1 20%;
+
 }
 
 .lgCard {
@@ -337,6 +416,14 @@ border-radius: 8px;
   font-weight: bold;
 }
 
+.register-form {
+  margin: 20px 0
+}
+
+.shared-p, .shared-end-p {
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 720px) {
   .container {
     max-width: 720px;
@@ -374,12 +461,14 @@ border-radius: 8px;
 
   .home-content {
     flex-direction: column;
+    margin: 0
+
   }
 
 
   .right-content {
-    width: fit-content;
-    margin: 0 3rem 10rem 
+    margin: 0 2em
+
   }
 
   .top {
@@ -395,7 +484,7 @@ border-radius: 8px;
   .shape {
     position: absolute;
     bottom: -550px;
-    left: 35%
+    left: 30%
   }
 
   .name {
@@ -404,6 +493,24 @@ border-radius: 8px;
 
   .lgPic {
     height: 300px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 25px
+  }
+
+  .shared-p {
+    font-size: 10px;
+
+  }
+
+  .shared-end {
+    font-size: 13px;
+
   }
 
 }
@@ -462,11 +569,6 @@ border-radius: 8px;
 
   .top-half {
     flex: 2
-  }
-
-  p {
-    font-size: 13px;
-    margin: 0 8px 8px 0;
   }
 
   .random-card {
@@ -547,4 +649,48 @@ border-radius: 8px;
   .notes {
     font-size: 14px;
   }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .shared-pic {
+    height: 80px;
+    margin: 0
+  }
+
+  .shared-end {
+    font-size: 12;
+  }
+
+  .shared-body {
+    padding: 6px;
+    gap: 6px
+  }
+
+  .share-page {
+    gap: 10px
+  }
+
+  .user-card {
+    padding: 4px;
+  }
+
+  .user-pic {
+    width: 90px
+  }
+
+  .bi.title {
+    font-size: 16px;
+  }
+
+  .posts {
+    gap: 8px
+  }
+
 }

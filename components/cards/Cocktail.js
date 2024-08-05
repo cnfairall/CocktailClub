@@ -38,7 +38,7 @@ export default function Cocktail({ cocktail }) {
     <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
       {router.pathname === '/search' ? (
 
-        <CardBody>
+        <CardBody className="drink-card">
           <div className="name-pic">
             <p className="name">{cocktail?.strDrink}</p>
             <Image rounded className="smPic" src={cocktail?.strDrinkThumb} />

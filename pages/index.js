@@ -61,7 +61,7 @@ export default function Home() {
         </div>
         <div className="right-content">
           <div className="random-title">
-            <p className="shrikhand">Why not try</p>
+            <div className="shrikhand">Why not try</div>
           </div>
           <Card>
             <CardBody className="random-card">
