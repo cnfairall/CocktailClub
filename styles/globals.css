@@ -53,6 +53,10 @@ body {
  font-family: Montserrat!important;
 }
 
+.card, .card-body {
+  background-color: transparent!important;
+}
+
 .home-content {
   display: flex;
   flex-direction: row;
