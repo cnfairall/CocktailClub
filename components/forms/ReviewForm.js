@@ -48,9 +48,9 @@ function ReviewForm({ savedCocktail }) {
   };
 
   return (
-    <div className="flex-wrap d-flex flex-column justify-content-center align-content-center">
+    <div className="review-form">
       <h1 className="title">Review {savedCocktail.name}</h1>
-      <Form style={{ width: '60%' }} onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mt-3 mb-3">
           <Form.Label className="caprasimo">Grade</Form.Label>
           <Form.Control

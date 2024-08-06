@@ -13,6 +13,8 @@ export default function Review() {
   }, [id]);
 
   return (
-    <ReviewForm savedCocktail={savedCocktail} />
+    <div className="review-page">
+      <ReviewForm savedCocktail={savedCocktail} />
+    </div>
   );
 }

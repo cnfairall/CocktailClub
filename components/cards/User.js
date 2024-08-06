@@ -25,8 +25,8 @@ export default function UserCard({ user }) {
 
   return (
     <>
-      <Card className="user-card">
-        <CardBody>
+      <Card>
+        <CardBody className="user-card">
           <CardImg className="user-pic" src={user?.imageUrl} />
           <h2 className="name">{user?.username}</h2>
           <p>{user?.firstName} {user?.lastName}</p>

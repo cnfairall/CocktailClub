@@ -32,7 +32,6 @@ a {
 .navbar-nav {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   width: 100%;
   --bs-navbar-active-color: rgb(11, 92, 43)!important;
 }
@@ -155,13 +154,6 @@ body {
   margin-bottom: 10px;
 }
 
-.name-pic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 .user-card {
   width: fit-content
 }
@@ -220,7 +212,7 @@ font-size: 14px;
 
 .btn {
   background-color: rgb(11, 92, 43)!important;
-  border: 1px solid black!important;
+  border: none!important;
   color: white!important;
   --bs-btn-hover-bg: #acb420!important;
   --bs-btn-hover-border-color: #acb420!important;
@@ -242,10 +234,6 @@ border-radius: 8px;
   flex-direction: column;
 }
 
-.drink-card {
-  justify-content: space-between ;
-}
-
 .info {
   margin-left: 20px;
   display: flex;
@@ -258,7 +246,6 @@ border-radius: 8px;
 .made-info {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
 .notes {
@@ -302,7 +289,7 @@ border-radius: 8px;
 
 .corner {
   display: flex;
-  align-content: flex-end;
+  justify-content: flex-end;
 }
 
 .end {
@@ -378,14 +365,6 @@ border-radius: 8px;
 
 }
 
-.yellow {
-  background-color: #acb420;
-  padding: 30px;
-  border-radius: 10px;
-  position: absolute;
-  right: 80px;
-}
-
 #start {
   color: rgb(11, 92, 43);
   font-size: 25px;
@@ -424,14 +403,21 @@ border-radius: 8px;
   margin-bottom: 0;
 }
 
+.review-form {
+  width: fit-content;
+  margin-top: 2em
+}
+
+.review-page {
+  display: flex;
+  justify-content: center;
+
+}
+
 @media screen and (max-width: 720px) {
   .container {
     max-width: 720px;
     padding: 0 1em
-  }
-
-  .list {
-    justify-content: center;
   }
 
   .smPic {
@@ -459,6 +445,11 @@ border-radius: 8px;
     width: fit-content;
   }
 
+  .intro {
+    font-size: 15px;
+    padding-right: 10px
+  }
+
   .home-content {
     flex-direction: column;
     margin: 0
@@ -467,7 +458,7 @@ border-radius: 8px;
 
 
   .right-content {
-    margin: 0 2em
+    margin: 0 3em
 
   }
 
@@ -483,8 +474,8 @@ border-radius: 8px;
 
   .shape {
     position: absolute;
-    bottom: -550px;
-    left: 30%
+    bottom: -600px;
+    left: 35%
   }
 
   .name {
@@ -504,7 +495,9 @@ border-radius: 8px;
   }
 
   .shared-p {
-    font-size: 10px;
+    font-size: 12px;
+    line-height: 1.1;
+    margin-bottom: 6px;
 
   }
 
@@ -519,7 +512,7 @@ border-radius: 8px;
 
   .random-pic {
     height: 150px;
-    margin-right: 8px;
+ 
   }
 
   #nav {
@@ -540,6 +533,11 @@ border-radius: 8px;
     font-size: 20px
   }
 
+  .intro {
+    font-size: 12px;
+    padding-bottom: 6px
+  }
+
   .home-content {
     max-width: 420px;
     justify-content: center;
@@ -556,11 +554,11 @@ border-radius: 8px;
   }
 
   .right-content {
-    margin: 0
+    margin: 0;
   }
 
   .smPic {
-    height: 100px
+    height: 120px
   }
 
   .pic {
@@ -655,17 +653,24 @@ border-radius: 8px;
   }
 
   p {
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .shared-p {
+    font-size: 9px;
+    margin-bottom: 3px;
+    line-height: 1;
   }
 
   .shared-pic {
     height: 80px;
-    margin: 0
+    margin: 0;
   }
 
   .shared-end {
-    font-size: 12;
+    font-size: 12px;
   }
 
   .shared-body {
@@ -682,7 +687,8 @@ border-radius: 8px;
   }
 
   .user-pic {
-    width: 90px
+    width: 70px;
+    margin-bottom: 4px
   }
 
   .bi.title {
@@ -692,5 +698,30 @@ border-radius: 8px;
   .posts {
     gap: 8px
   }
+
+  .cocktail {
+    margin-bottom: 4px
+  }
+
+  .cocktail-pic {
+    margin:  0;
+  }
+
+  .drink-body {
+    padding: 8px
+  }
+
+  h2.name {
+    margin-bottom: 4px;
+  }
+
+  .search {
+    margin-top: 8px
+  }
+
+  h1.bi.title {
+    font-size: 18px;
+  }
+
 
 }

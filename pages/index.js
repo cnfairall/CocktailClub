@@ -48,9 +48,9 @@ export default function Home() {
           </div>
           <div className="middle-content">
             <div>
-              <p><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
-              <p><strong>Review</strong> recipes and keep track of hits and misses.</p>
-              <p>Check out the <strong>Share</strong> page to see what others are making!</p>
+              <p className="intro"><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
+              <p className="intro"><strong>Review</strong> recipes and keep track of hits and misses.</p>
+              <p className="intro">Check out the <strong>Share</strong> page to see what others are making!</p>
             </div>
             <Nav.Link className="shape">
               <Link passHref href="/search">

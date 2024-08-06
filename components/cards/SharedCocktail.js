@@ -20,12 +20,14 @@ export default function SharedCocktail({ savedCocktail }) {
   return (
     <Card className="shared-card">
       <CardBody className="shared-body">
-        <Image rounded className="smPic shared-pic" src={savedCocktail.imageUrl} />
+        <div className="pic-div">
+          <Image rounded className="smPic shared-pic" src={savedCocktail.imageUrl} />
+        </div>
         <div className="shared-middle">
           <h1 className="name">{savedCocktail.name}</h1>
           <div className="shared-ingredients">
             {savedCocktail.cocktailIngredients?.map((ci) => (
-              <p className="shared-p" key={ci.id}><strong>{ci.ingredient?.name}</strong></p>
+              <p className="shared-p" key={ci.id}><i>{ci.ingredient?.name}</i></p>
             ))}
           </div>
         </div>
