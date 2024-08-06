@@ -38,47 +38,52 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
       <Card className={router.pathname.includes('/savedcocktails') ? 'lgCard' : 'smCard'}>
 
         {router.pathname === '/saved' && (
-          <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <Image rounded className="smPic" src={savedCocktail.imageUrl} />
-            <div className="title">{savedCocktail.name}</div>
-
-            <div className="corner">
-              <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
-                <i className="fs-2 bi bi-eye-fill" />
-              </Link>
+          <CardBody className="drink-body">
+            <div>
+              <div className="d-flex justify-content-center">
+                <Image rounded className="smPic" src={savedCocktail.imageUrl} />
+              </div>
+              <div className="name">{savedCocktail.name}</div>
+            </div>
+            <div className="end">
+              <div className="corner">
+                <Link passHref href={`/savedcocktails/${savedCocktail.id}`}>
+                  <i className="fs-2 bi bi-eye-fill" />
+                </Link>
+              </div>
             </div>
           </CardBody>
         )}
 
         {router.pathname.includes('/savedcocktails') && (
-          <CardBody style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex' }}>
+          <CardBody className="detail-card">
+            <div className="top-row">
               <Image rounded className="lgPic" src={savedCocktail.imageUrl} />
-              <div className="d-flex flex-column justify-content-between">
+              <div className="info">
                 <div>
                   <div className="title">{savedCocktail.name}</div>
-                  <div><strong>{savedCocktail.glass?.name}</strong></div>
+                  <div>{savedCocktail.glass?.name}</div>
                 </div>
-                <div style={{ marginLeft: '10px' }}>
+                <div className="smfont">
                   {savedCocktail.cocktailIngredients?.map((ci) => (
                     <div>{ci.amount} <strong>{ci.ingredient?.name}</strong></div>
                   ))}
                 </div>
-                <div>{savedCocktail?.instructions}</div>
               </div>
             </div>
+            <div className="instructions">{savedCocktail?.instructions}</div>
 
               {savedCocktail?.made === true ? (
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div className="made-info">
+                  <div className="notes">
                     <div><strong>Grade:</strong> {savedCocktail.grade}</div>
                     <div><strong>Notes:</strong> {savedCocktail.notes}</div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                  <div className="made-btns">
                     {savedCocktail.public === true ? (
                       <i className="bi bi-cloud-check-fill fs-2" />) : (
                         <>
-                          <Button style={{ marginBottom: '10px' }} onClick={shareACocktail}>
+                          <Button onClick={shareACocktail}>
                             Share
                           </Button>
                         </>
@@ -89,17 +94,13 @@ export default function SavedCocktail({ savedCocktail, onUpdate }) {
                   </div>
                 </div>
               ) : (
-                <div style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop: '10px',
-                }}
-                >
-                  <Button style={{ marginBottom: '10px' }} onClick={handleShow}>Unsave</Button>
+                <div className="made-btns">
+                  <Button onClick={handleShow}>Unsave</Button>
                   <Link passHref href={`/savedcocktails/review/${savedCocktail.id}`}>
                     <Button>Review</Button>
                   </Link>
                 </div>
               )}
-            {/* </div> */}
           </CardBody>
         )}
       </Card>

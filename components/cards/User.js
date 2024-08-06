@@ -25,14 +25,13 @@ export default function UserCard({ user }) {
 
   return (
     <>
-      <Card style={{ width: '15rem' }}>
-        <CardBody className="column">
-          <CardImg src={user?.imageUrl} style={{ marginBottom: '10px' }} />
-          <h2 className="title">{user?.username}</h2>
+      <Card>
+        <CardBody className="user-card">
+          <CardImg className="user-pic" src={user?.imageUrl} />
+          <h2 className="name">{user?.username}</h2>
           <p>{user?.firstName} {user?.lastName}</p>
-          <p>{user?.email}</p>
           <p>{user?.bio}</p>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          <div className="made-btns">
             <Link passHref href="/edituser">
               <Button style={{ marginBottom: '10px' }}>Edit</Button>
             </Link>

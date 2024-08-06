@@ -27,20 +27,19 @@ function Share() {
   }, [ref.current]);
 
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'row', justifyItems: 'space-evenly', justifyContent: 'space-evenly',
-    }}
-    >
-      <div className="column" style={{ width: '20%' }}>
+    <div className="share-page">
+      <div className="user-column">
         <UserCard user={appUser} updateUser={updateUser} />
       </div>
-      <div className="column">
+      <div className="post-column">
         <div className="d-flex justify-content-center">
-          <h1 className="bi title m-3">What other users are trying now</h1>
+          <h1 className="bi title">What other users are trying now</h1>
         </div>
-        {publicCocktails.map((cocktail) => (
-          <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} key={cocktail.id} />
-        ))}
+        <div className="posts">
+          {publicCocktails.map((cocktail) => (
+            <SharedCocktail savedCocktail={cocktail} onUpdate={getPublic} key={cocktail.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

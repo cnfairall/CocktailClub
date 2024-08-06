@@ -3,13 +3,10 @@ import {
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-// import { useAuth } from '../../utils/context/authContext';
 import Link from 'next/link';
 import { getSingleUser } from '../../api/UsersApi';
 
 export default function SharedCocktail({ savedCocktail }) {
-  // const { user } = useAuth();
-  // const [added, setAdded] = useState(false);
   const [reviewer, setReviewer] = useState({});
 
   const getCocktailReviewer = () => {
@@ -21,29 +18,30 @@ export default function SharedCocktail({ savedCocktail }) {
   }, [savedCocktail]);
 
   return (
-    <Card style={{ margin: '10px 0 10px 20px' }}>
-      <CardBody className="d-flex justify-content-between">
-        <Image rounded style={{ height: '200px' }} src={savedCocktail.imageUrl} />
-        <div className="d-flex flex-column align-content-between" style={{ margin: '0 10px 0 10px', maxWidth: '50%' }}>
-          <h1 className="smtitle">{savedCocktail.name}</h1>
-          <div className="mb-3">
+    <Card className="shared-card">
+      <CardBody className="shared-body">
+        <div className="pic-div">
+          <Image rounded className="smPic shared-pic" src={savedCocktail.imageUrl} />
+        </div>
+        <div className="shared-middle">
+          <h1 className="name">{savedCocktail.name}</h1>
+          <div className="shared-ingredients">
             {savedCocktail.cocktailIngredients?.map((ci) => (
-              <div key={ci.id}><strong>{ci.ingredient?.name}</strong></div>
+              <p className="shared-p" key={ci.id}><i>{ci.ingredient?.name}</i></p>
             ))}
           </div>
         </div>
-        <div className="d-flex flex-column justify-content-between">
+        <div className="shared-end">
           <div>
-            <p>Shared by: <strong>{reviewer.username}</strong></p>
-            <p><strong>Grade:</strong> {savedCocktail.grade}</p>
-            <p><strong>Notes:</strong> {savedCocktail.notes}</p>
+            <p className="shared-end-p">Shared by: <strong>{reviewer.username}</strong></p>
+            <p className="shared-end-p"><strong>Grade:</strong> {savedCocktail.grade}</p>
+            <p className="shared-end-p"><strong>Notes:</strong> {savedCocktail.notes}</p>
           </div>
           <div className="corner">
             <Link passHref href={`/cocktails/${savedCocktail.drinkId}`}>
               <i className="fs-2 bi bi-eye-fill" />
             </Link>
           </div>
-
         </div>
       </CardBody>
     </Card>

@@ -62,13 +62,13 @@ export default function Search() {
   };
 
   return (
-    <div>
+    <div className="search-page">
       <div className="d-flex justify-content-center">
         <h1 className="bi title">Find a new cocktail</h1>
       </div>
       <div className="search">
         <SearchBar onSearch={getName} />
-        <Form>
+        <Form className="search-input">
           <Form.Group className="mb-3">
             <Form.Select
               aria-label="spirit-select"
@@ -90,7 +90,7 @@ export default function Search() {
             </Form.Select>
           </Form.Group>
         </Form>
-        <Form>
+        <Form className="search-input">
           <Form.Group className="mb-3">
             <Form.Select
               aria-label="glass-select"

@@ -37,71 +37,74 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="column mt-5">
-      <div style={{
-        display: 'flex', justifyContent: 'space-between',
-      }}
-      >
-        <div className="flex-column justify-between">
-          <h1 className="title bi">Hello, {user.firstName}</h1>
-          <div className="d-flex m-4 justify-content-start">
+    <div>
+
+      <div className="home-content">
+        <div className="left-middle">
+          <div className="left-content">
+            <h1 className="title bi">Hello, {user.firstName}</h1>
             <Image id="bartender" src="/images/bartender.png" alt="person shaking cocktail" />
-            <div className="d-flex flex-column justify-content-between">
-              <div style={{ width: '18em' }}>
-                <p><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
-                <p><strong>Review</strong> recipes and keep track of hits and misses.</p>
-                <p>Check out the <strong>Share</strong> page to see what others are making!</p>
-              </div>
-              <Nav.Link className="shape">
-                <Link passHref href="/search">
-                  <div id="start">Get Started</div>
-                </Link>
-              </Nav.Link>
+            <a className="credit smfont" href="https://storyset.com/people">People illustration by Storyset</a>
+          </div>
+          <div className="middle-content">
+            <div>
+              <p className="intro"><strong>Discover</strong> and save unique cocktail recipes to make at home.</p>
+              <p className="intro"><strong>Review</strong> recipes and keep track of hits and misses.</p>
+              <p className="intro">Check out the <strong>Share</strong> page to see what others are making!</p>
             </div>
+            <Nav.Link className="shape">
+              <Link passHref href="/search">
+                <div id="start">Get Started</div>
+              </Link>
+            </Nav.Link>
           </div>
-          <a className="smfont" href="https://storyset.com/people">People illustration by Storyset</a>
         </div>
-        <div className="yellow flex-wrap d-flex flex-column justify-content-end align-content-center">
-          <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-            <p className="shrikhand">Why not try</p>
+        <div className="right-content">
+          <div className="random-title">
+            <div className="shrikhand">Why not try</div>
           </div>
-          <Card style={{ width: '30rem' }}>
-            <CardBody style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Image rounded className="smPic" src={randomCocktail[0]?.strDrinkThumb} />
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Card>
+            <CardBody className="random-card">
+              <div className="top">
+                <div className="pic">
+                  <Image rounded className="random-pic" src={randomCocktail[0]?.strDrinkThumb} />
+                </div>
+                <div className="top-half">
                   <div>
-                    <div style={{ fontFamily: 'Caprasimo', fontSize: '25px' }}>{randomCocktail[0]?.strDrink}</div>
-                    <p>{randomCocktail[0]?.strGlass}</p>
+                    <div>
+                      <div className="name">{randomCocktail[0]?.strDrink}</div>
+                      <p>{randomCocktail[0]?.strGlass}</p>
+                    </div>
                   </div>
                   <div className="measures smfont">
                     <div className="amounts">
-                      {randomCocktail.amounts?.map((item) => <div key={item.idDrink}>{item}</div>)}
+                      {randomCocktail.amounts?.map((item) => <div className="no-wrap" key={item.idDrink}>{item}</div>)}
                     </div>
                     <div className="ingredients bold">
-                      {randomCocktail.ingredients?.map((item) => <div key={item.idDrink}>{item}</div>)}
+                      {randomCocktail.ingredients?.map((item) => <div className="no-wrap" key={item.idDrink}>{item}</div>)}
                     </div>
                   </div>
                 </div>
               </div>
-              <div style={{ margin: '10px 0 10px 0' }}>{randomCocktail[0]?.strInstructions}</div>
+              <div className="instructions">{randomCocktail[0]?.strInstructions}</div>
               <div className="d-flex justify-content-between">
                 <Button id="refresh" onClick={setRandom}>
                   <i className="bi-arrow-clockwise" />
                 </Button>
-                <Button onClick={saveThisCocktail}>Save Cocktail</Button>
+                <Button onClick={saveThisCocktail}>Save</Button>
               </div>
             </CardBody>
           </Card>
         </div>
 
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton />
+          <Modal.Body>
+            <p>Cocktail saved!</p>
+          </Modal.Body>
+        </Modal>
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton />
-        <Modal.Body>
-          <p>Cocktail saved!</p>
-        </Modal.Body>
-      </Modal>
     </div>
+
   );
 }
