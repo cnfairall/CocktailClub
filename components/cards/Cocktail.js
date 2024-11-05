@@ -1,22 +1,25 @@
 import {
-  Button, Card, CardBody, Image,
+  Button, Card, CardBody, Image, Modal,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getUserCocktails, saveCocktail } from '../../api/SavedCocktailsApi';
 import { useAuth } from '../../utils/context/authContext';
-import { getCocktailDto } from '../../api/CocktailsApi';
+import { getCocktailDto, getCocktailbyDrinkId } from '../../api/CocktailsApi';
 
 export default function Cocktail({ cocktail }) {
   const router = useRouter();
   const { user } = useAuth();
   const [added, setAdded] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
+  const [details, setDetails] = useState({});
+
+  const handleClose = () => setShowDetail(false);
 
   const saveThisCocktail = () => {
-    getCocktailDto(cocktail[0].idDrink).then((resp) => {
-      saveCocktail(resp[0], user.id).then(router.push('/saved'));
+    getCocktailDto(details[0].idDrink).then((resp) => {
+      saveCocktail(resp[0], user.id).then(handleClose());
     });
   };
 
@@ -30,48 +33,60 @@ export default function Cocktail({ cocktail }) {
     });
   };
 
+  const getCocktailDetails = () => {
+    getCocktailbyDrinkId(cocktail.idDrink).then(setDetails);
+    setShowDetail(true);
+  };
+
   useEffect(() => {
     getUsersCocktails();
   }, [cocktail]);
 
   return (
-    <Card className={router.pathname === '/search' ? 'smCard' : 'lgCard'}>
-      {router.pathname === '/search' ? (
+    <>
+      <Card className="smCard">
         <CardBody className="drink-body">
           <p className="name cocktail">{cocktail?.strDrink}</p>
           <Image rounded className="smPic cocktail-pic" src={cocktail?.strDrinkThumb} />
           <div className="corner">
-            <Link passHref href={`/cocktails/${cocktail.idDrink}`}>
+            <Button
+              id="clearbtn"
+              onClick={getCocktailDetails}
+            >
               <i className="fs-2 bi bi-eye-fill" />
-            </Link>
+            </Button>
           </div>
         </CardBody>
+      </Card>
 
-      ) : (
-        <>
+      <Modal
+        show={showDetail}
+        onHide={handleClose}
+      >
+        <Card>
           <CardBody className="detail-card">
             <div className="top-row">
 
               <div>
-                <Image rounded className="lgPic" src={cocktail[0]?.strDrinkThumb} />
+                <Image rounded className="lgPic" src={details[0]?.strDrinkThumb} />
               </div>
               <div className="info">
                 <div>
-                  <div className="title">{cocktail[0]?.strDrink}</div>
-                  <p>{cocktail[0]?.strGlass}</p>
+                  <div className="title">{details[0]?.strDrink}</div>
+                  <p>{details[0]?.strGlass}</p>
                 </div>
                 <div className="measures smfont">
                   <div className="amounts">
-                    {cocktail.amounts?.map((item) => <div className="no-wrap" key={item.idDrink}>{item}</div>)}
+                    {details.amounts?.map((item) => <div className="no-wrap" key={item.idDrink}>{item}</div>)}
                   </div>
                   <div className="ingredients">
-                    {cocktail.ingredients?.map((item) => <div className="no-wrap" key={item.idDrink}><strong>{item}</strong></div>)}
+                    {details.ingredients?.map((item) => <div className="no-wrap" key={item.idDrink}><strong>{item}</strong></div>)}
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="instructions">{cocktail[0]?.strInstructions}</div>
+            <div className="instructions">{details[0]?.strInstructions}</div>
             <div className="corner">
               {added ? (
                 <p className="added">Added</p>
@@ -80,9 +95,10 @@ export default function Cocktail({ cocktail }) {
               )}
             </div>
           </CardBody>
-        </>
-      )}
-    </Card>
+        </Card>
+      </Modal>
+    </>
+
   );
 }
 
