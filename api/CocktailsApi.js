@@ -1,5 +1,3 @@
-// import { clientCredentials } from '../utils/client';
-
 const endpoint = "https://cocktailclub.app";
 
 const getCocktailByName = (name) => new Promise((resolve, reject) => {
