@@ -24,6 +24,7 @@ Craft cocktails are everywhere but sometimes the best bar is your own home. Cock
 https://www.loom.com/share/a0c91e8c9cef4cd99a0ed51d8b1bbfaf?sid=8bc4e535-add8-43b9-b5ae-32fcc4062e2f
 
 ## Relevant Links
+- [Backend Repo](https://github.com/cnfairall/CocktailClubServer)
 - [Check out the deployed site](https://cocktailclubapp.netlify.app/)
 - [Wireframes](https://www.figma.com/design/shKc0l4bgrmPby7eJP5viU/cocktail?node-id=0-1&t=2OsRcR6hhHIgWc2Q-1)
 - [Project Board](https://github.com/users/cnfairall/projects/9)
@@ -31,9 +32,9 @@ https://www.loom.com/share/a0c91e8c9cef4cd99a0ed51d8b1bbfaf?sid=8bc4e535-add8-43
 ## Project Screenshots
 <img width="1148" alt="home page" src="/public/images/home.png">
 <img width="1148" alt="search page" src="/public/images/search.png">
-<img width="1148" alt="saved page" src="/public/assets/saved.png">
-<img width="1148" alt="detail page" src="/public/assets/detail.png">
-<img width="1148" alt="share page" src="/public/assets/share.png">
+<img width="1148" alt="saved page" src="/public/images/saved.png">
+<img width="1148" alt="detail page" src="/public/images/detail.png">
+<img width="1148" alt="share page" src="/public/images/share.png">
 
 
 ## Contributors
